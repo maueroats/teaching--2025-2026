@@ -1,0 +1,40 @@
+
+class MyString {
+    /* ----------------------------------------------- */
+    /* PROVIDE THESE FUNCTIONS TO STUDENTS FOR TESTING */
+    /* ----------------------------------------------- */
+    // Note: no implementation-specific details here
+    // Use accessor functions.
+
+    method String toString() {
+        var String ans;
+        var int n;
+        var int len;
+
+        let len = length();
+        let ans = String.new(len+1);
+        let n = 0;
+
+        while(n<len) {
+            do ans.appendChar(charAt(n));
+            let n = n + 1;
+        }
+        return ans;
+    }
+
+    function MyString fromString(String x) {
+        var int n;
+        var int len;
+        var MyString ans;
+
+        let n = 0;
+        let len = x.length();
+        let ans = MyString.new(len+1);
+
+        while(n<len) {
+            do ans.appendChar(x.charAt(n));
+            let n = n + 1;
+        }
+        return ans;
+    }
+}

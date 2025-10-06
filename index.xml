@@ -6,7 +6,7 @@
     <description>Recent content on WY CS</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Sep 2025 13:38:20 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 06 Oct 2025 07:02:32 -0500</lastBuildDate>
     <atom:link href="https://wy-cs.info/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Connect Four Overview</title>
@@ -2107,6 +2107,13 @@
       <pubDate>Mon, 13 Nov 2017 09:52:14 -0600</pubDate>
       <guid>https://wy-cs.info/ap-cs/karel/ch4d-review/</guid>
       <description>&lt;h2 id=&#34;murderbot&#34;&gt;MurderBot&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A &lt;code&gt;MurderBot&lt;/code&gt; is a kind of &lt;code&gt;StrategyLayer&lt;/code&gt; with two additional abilities:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;public void stab()&lt;/code&gt;: place two beepers&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;public void flee()&lt;/code&gt;: move one step&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The &lt;code&gt;KillerStrategy&lt;/code&gt; is a kind of &lt;code&gt;Strategy&lt;/code&gt; that makes the robot it controls &lt;code&gt;stab&lt;/code&gt; the first time the strategy is invoked (via &lt;code&gt;doStrat&lt;/code&gt;, which will call &lt;code&gt;doIt&lt;/code&gt;). Every subsequent time the robot is told to &lt;code&gt;doStrat()&lt;/code&gt;, it should &lt;code&gt;flee&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Make sure the same &lt;code&gt;doStrat()&lt;/code&gt; call causes one stab or one flee each time.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>8. Short Exercises A</title>
+      <link>https://wy-cs.info/ap-cs/haskell/ch08/50-problemset/</link>
+      <pubDate>Mon, 06 Oct 2025 07:02:32 -0500</pubDate>
+      <guid>https://wy-cs.info/ap-cs/haskell/ch08/50-problemset/</guid>
+      <description>&lt;p&gt;Contents:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;data, including deriving (Show, Eq, Read, Ord)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;part-i&#34;&gt;Part I&lt;/h2&gt;&#xA;&lt;p&gt;CodeWorld uses &lt;code&gt;Double&lt;/code&gt; instead of &lt;code&gt;Float&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Point&lt;/code&gt; is an alias for &lt;code&gt;(Double, Double)&lt;/code&gt; in CodeWorld.&lt;/p&gt;&#xA;&lt;p&gt;A grid animation includes two &lt;code&gt;Int&lt;/code&gt;s: &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt;, a &lt;code&gt;Double&lt;/code&gt;&#xA;for the spacing, and a base &lt;code&gt;Picture&lt;/code&gt;. Examples:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;ex1 = GridAnim 8 5 2.0 (circle 0.9)&#xA;ex2 = GridAnim{width=8, height=5, spacing=2.0, base=(circle 0.9)}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Draw the grid so the upper left base picture is at (0,0) and the&#xA;spacing is left between the centers of each adjacent image.&lt;/p&gt;</description>
     </item>
     <item>
       <title>For 0.5</title>
