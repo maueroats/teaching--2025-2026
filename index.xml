@@ -6,7 +6,7 @@
     <description>Recent content on WY CS</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Oct 2025 07:02:32 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 20 Oct 2025 11:49:54 -0500</lastBuildDate>
     <atom:link href="https://wy-cs.info/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Connect Four Overview</title>
@@ -244,7 +244,7 @@
       <link>https://wy-cs.info/ap-cs/haskell/code-world/05-misc-ex/mini-a/</link>
       <pubDate>Tue, 14 Nov 2023 10:09:41 -0600</pubDate>
       <guid>https://wy-cs.info/ap-cs/haskell/code-world/05-misc-ex/mini-a/</guid>
-      <description>&lt;p&gt;Make an activity:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use the keys WASD to drive a circle around the screen.&lt;/li&gt;&#xA;&lt;li&gt;Click on the circle to switch the color between orange and blue.&lt;/li&gt;&#xA;&lt;li&gt;Clicking outside of the circle does not change the color.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>&lt;p&gt;Make an activity:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use the keys WASD to drive a solid circle around the screen.&lt;/li&gt;&#xA;&lt;li&gt;Click on the circle to switch the color between orange and blue.&lt;/li&gt;&#xA;&lt;li&gt;Clicking outside of the circle does not change the color.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Strings 1</title>
@@ -839,7 +839,7 @@
       <link>https://wy-cs.info/ap-cs/haskell/code-world/05-misc-ex/mini-b/</link>
       <pubDate>Tue, 14 Nov 2023 10:09:44 -0600</pubDate>
       <guid>https://wy-cs.info/ap-cs/haskell/code-world/05-misc-ex/mini-b/</guid>
-      <description>&lt;p&gt;Make an activity:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Clicking sets the center of an orange square.&lt;/li&gt;&#xA;&lt;li&gt;Hit the &amp;ldquo;A&amp;rdquo; key to make the square change between blue and orange.&lt;/li&gt;&#xA;&lt;li&gt;Every 5 seconds the square turns yellow until the next action.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>&lt;p&gt;Make an activity:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Clicking sets the center of an orange square.&lt;/li&gt;&#xA;&lt;li&gt;Hit the &amp;ldquo;A&amp;rdquo; key to make the square change between blue and orange.&#xA;Change from yellow to blue.&lt;/li&gt;&#xA;&lt;li&gt;Every 5 seconds the square turns yellow until the next action.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Options:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The timer to turn yellow restarts every interaction (click or key).&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Random Intro</title>
@@ -1336,7 +1336,7 @@
       <link>https://wy-cs.info/ap-cs/haskell/code-world/05-misc-ex/mini-c/</link>
       <pubDate>Thu, 16 Nov 2023 06:59:17 -0600</pubDate>
       <guid>https://wy-cs.info/ap-cs/haskell/code-world/05-misc-ex/mini-c/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;Clicking alternately places a square (side length 2) and a circle&#xA;(radius 1), centered on the click.&lt;/li&gt;&#xA;&lt;li&gt;Hitting &amp;ldquo;1&amp;rdquo; changes the color of the last shape placed.&lt;/li&gt;&#xA;&lt;li&gt;Hitting &amp;ldquo;2&amp;rdquo; changes the color of the penultimate shape placed.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;Clicking alternately places a square (side length 2) and a circle&#xA;(radius 1), centered on the click.&lt;/li&gt;&#xA;&lt;li&gt;Hitting &amp;ldquo;1&amp;rdquo; changes the color of the last shape placed.&lt;/li&gt;&#xA;&lt;li&gt;Hitting &amp;ldquo;2&amp;rdquo; changes the color of the penultimate shape placed.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Make successive hits of a key cycle the color between orange and blue.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Py Warmup 2</title>
@@ -2109,11 +2109,18 @@
       <description>&lt;h2 id=&#34;murderbot&#34;&gt;MurderBot&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A &lt;code&gt;MurderBot&lt;/code&gt; is a kind of &lt;code&gt;StrategyLayer&lt;/code&gt; with two additional abilities:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;public void stab()&lt;/code&gt;: place two beepers&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;public void flee()&lt;/code&gt;: move one step&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The &lt;code&gt;KillerStrategy&lt;/code&gt; is a kind of &lt;code&gt;Strategy&lt;/code&gt; that makes the robot it controls &lt;code&gt;stab&lt;/code&gt; the first time the strategy is invoked (via &lt;code&gt;doStrat&lt;/code&gt;, which will call &lt;code&gt;doIt&lt;/code&gt;). Every subsequent time the robot is told to &lt;code&gt;doStrat()&lt;/code&gt;, it should &lt;code&gt;flee&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Make sure the same &lt;code&gt;doStrat()&lt;/code&gt; call causes one stab or one flee each time.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Mini E</title>
+      <link>https://wy-cs.info/ap-cs/haskell/code-world/05-misc-ex/mini-e/</link>
+      <pubDate>Thu, 09 Oct 2025 12:13:16 -0500</pubDate>
+      <guid>https://wy-cs.info/ap-cs/haskell/code-world/05-misc-ex/mini-e/</guid>
+      <description>&lt;p&gt;A &lt;code&gt;SqGame&lt;/code&gt; contains&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;a list of &lt;code&gt;(Color, Point)&lt;/code&gt; called &lt;code&gt;sqs&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;a single &lt;code&gt;Point&lt;/code&gt; called &lt;code&gt;here&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;a single &lt;code&gt;Color&lt;/code&gt; called &lt;code&gt;cc&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Exercises:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Write a data definition for &lt;code&gt;SqGame&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Make an example variable &lt;code&gt;ex&lt;/code&gt; of type &lt;code&gt;SqGame&lt;/code&gt; containing&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;sqs&lt;/code&gt;: &lt;code&gt;(red, (-1.5, 2.0))&lt;/code&gt; and &lt;code&gt;(orange, (3.0, 1.0))&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;here&lt;/code&gt;: &lt;code&gt;(2,-4)&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;cc&lt;/code&gt;: &lt;code&gt;purple&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Write a drawing function that places a 0.5x0.5 square for each item&#xA;in the &lt;code&gt;sqs&lt;/code&gt; list.&#xA;In addition, place a r=0.25 circle with color &lt;code&gt;cc&lt;/code&gt; at center &lt;code&gt;here&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>8. Short Exercises A</title>
       <link>https://wy-cs.info/ap-cs/haskell/ch08/50-problemset/</link>
       <pubDate>Mon, 06 Oct 2025 07:02:32 -0500</pubDate>
       <guid>https://wy-cs.info/ap-cs/haskell/ch08/50-problemset/</guid>
-      <description>&lt;p&gt;Contents:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;data, including deriving (Show, Eq, Read, Ord)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;part-i&#34;&gt;Part I&lt;/h2&gt;&#xA;&lt;p&gt;CodeWorld uses &lt;code&gt;Double&lt;/code&gt; instead of &lt;code&gt;Float&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Point&lt;/code&gt; is an alias for &lt;code&gt;(Double, Double)&lt;/code&gt; in CodeWorld.&lt;/p&gt;&#xA;&lt;p&gt;A grid animation includes two &lt;code&gt;Int&lt;/code&gt;s: &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt;, a &lt;code&gt;Double&lt;/code&gt;&#xA;for the spacing, and a base &lt;code&gt;Picture&lt;/code&gt;. Examples:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;ex1 = GridAnim 8 5 2.0 (circle 0.9)&#xA;ex2 = GridAnim{width=8, height=5, spacing=2.0, base=(circle 0.9)}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Draw the grid so the upper left base picture is at (0,0) and the&#xA;spacing is left between the centers of each adjacent image.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;part-i&#34;&gt;Part I&lt;/h2&gt;&#xA;&lt;p&gt;CodeWorld uses &lt;code&gt;Double&lt;/code&gt; instead of &lt;code&gt;Float&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Point&lt;/code&gt; is an alias for &lt;code&gt;(Double, Double)&lt;/code&gt; in CodeWorld.&lt;/p&gt;&#xA;&lt;p&gt;A grid animation includes two &lt;code&gt;Int&lt;/code&gt;: &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt;, a &lt;code&gt;Double&lt;/code&gt;&#xA;for the spacing, and a base &lt;code&gt;Picture&lt;/code&gt;. Examples:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;ex1 = GridAnim 8 5 2.0 (circle 0.9)&#xA;ex2 = GridAnim{width=8, height=5, spacing=2.0, base=(circle 0.9)}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Draw the grid so the upper left base picture is at (0,0) and the&#xA;spacing is left between the centers of each adjacent image.&lt;/p&gt;</description>
     </item>
     <item>
       <title>For 0.5</title>
@@ -2519,7 +2526,7 @@
       <link>https://wy-cs.info/ap-cs/haskell/ch06/ch6-discussion-01/</link>
       <pubDate>Tue, 12 Nov 2019 15:13:20 -0600</pubDate>
       <guid>https://wy-cs.info/ap-cs/haskell/ch06/ch6-discussion-01/</guid>
-      <description>&lt;h2 id=&#34;partial-evaluation&#34;&gt;Partial Evaluation&lt;/h2&gt;&#xA;&lt;h3 id=&#34;p1&#34;&gt;P1&lt;/h3&gt;&#xA;&lt;p&gt;Given&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;f x y = 2*x+3*y&#xA;moo = f&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;What kind of thing is &lt;code&gt;moo&lt;/code&gt;? A number? A function? An error?&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;moo 10 1 == f 10 1&#xA;         == 23&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;p2&#34;&gt;P2&lt;/h3&gt;&#xA;&lt;p&gt;Continuing:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;oom = f 100 10&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;What kind of thing is &lt;code&gt;oom&lt;/code&gt;? A number? A function? An error?&lt;/p&gt;&#xA;&lt;h3 id=&#34;p3&#34;&gt;P3&lt;/h3&gt;&#xA;&lt;p&gt;Continuing:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;oof = f 10&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;What kind of thing is &lt;code&gt;oof&lt;/code&gt;? A number? A function? An error?&lt;/p&gt;</description>
+      <description>&lt;style type=&#34;text/css&#34;&gt;&#xA;    ol { list-style-type: roman; }&#xA;    ol ol { list-style-type: lower-alpha; }&#xA;    ol ol ol { list-style-type: lower-roman; }&#xA;    ol ol ol ol { list-style-type: decimal; }&#xA;&lt;/style&gt;&#xA;&lt;h2 id=&#34;partial-evaluation&#34;&gt;Partial Evaluation&lt;/h2&gt;&#xA;&lt;h3 id=&#34;p1&#34;&gt;P1&lt;/h3&gt;&#xA;&lt;p&gt;Given&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;f x y = 2*x+3*y&#xA;moo = f&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;What kind of thing is &lt;code&gt;moo&lt;/code&gt;? A number? A function? An error?&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;moo 10 1 == f 10 1&#xA;         == 23&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;p2&#34;&gt;P2&lt;/h3&gt;&#xA;&lt;p&gt;Continuing:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;oom = f 100 10&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;What kind of thing is &lt;code&gt;oom&lt;/code&gt;? A number? A function? An error?&lt;/p&gt;</description>
     </item>
     <item>
       <title>22a. Harmonic</title>
@@ -4207,6 +4214,13 @@
       <pubDate>Mon, 23 Jan 2023 12:12:05 -0600</pubDate>
       <guid>https://wy-cs.info/ml/daily/2023-01-23/</guid>
       <description>&lt;script&gt;&#xA;MathJax = {&#xA;  tex: {&#xA;    inlineMath: [[&#39;$&#39;, &#39;$&#39;], [&#39;\\(&#39;, &#39;\\)&#39;]],&#xA;    macros: {&#xA;        Var: [&#34;\\operatorname{Var}&#34;],&#xA;        Cov: [&#34;\\operatorname{Cov}&#34;]&#xA;    },&#xA;  },&#xA; svg: {&#xA;     fontCache: &#39;global&#39;&#xA; }&#xA;};&#xA;&lt;/script&gt;&#xA;&lt;script id=&#34;MathJax-script&#34; async src=&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;&gt;&lt;/script&gt;&#xA;&lt;style type=&#34;text/css&#34;&gt;&#xA;    ol { list-style-type: roman; }&#xA;    ol ol { list-style-type: lower-alpha; }&#xA;    ol ol ol { list-style-type: lower-roman; }&#xA;    ol ol ol ol { list-style-type: decimal; }&#xA;&lt;/style&gt;&#xA;&lt;p&gt;Homework set ISL-05W, confidence intervals and the bootstrap method.&lt;/p&gt;&#xA;&lt;h2 id=&#34;weekly-homework&#34;&gt;Weekly Homework&lt;/h2&gt;&#xA;&lt;h3 id=&#34;big-picture&#34;&gt;Big Picture&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;What is the definition of a p-value? What (abstract) information do&#xA;you need to have in order to compute a p-value?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025-10-20 Daily Worksheet</title>
+      <link>https://wy-cs.info/ap-cs/haskell/daily/2025-10-20/</link>
+      <pubDate>Mon, 20 Oct 2025 11:49:54 -0500</pubDate>
+      <guid>https://wy-cs.info/ap-cs/haskell/daily/2025-10-20/</guid>
+      <description>&lt;script&gt;&#xA;MathJax = {&#xA; tex: {&#xA;  inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],&#xA;  displayMath: [[&#39;$$&#39;,&#39;$$&#39;], [&#39;\\[&#39;,&#39;\\]&#39;]]&#xA; },&#xA;    svg: {&#xA;        fontCache: &#39;global&#39;&#xA;    }&#xA;};&#xA;&lt;/script&gt;&#xA;&lt;script id=&#34;MathJax-script&#34; async src=&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;&gt;&lt;/script&gt;&#xA;&lt;h2 id=&#34;review&#34;&gt;Review&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Inside a function &lt;code&gt;f x&lt;/code&gt;, use &lt;code&gt;let&lt;/code&gt; to create variables x2 holding x&#xA;squared, and x3 holding x cubed. Then create the function below.&lt;/p&gt;&#xA;&lt;p&gt;$$ f(x) = x^3 (x^2-1) $$&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;new&#34;&gt;New&lt;/h2&gt;&#xA;&lt;p&gt;An official data type is &lt;code&gt;Maybe a&lt;/code&gt;. The data definition is:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;    data Maybe a = Nothing | Just a&#xA;        deriving (Show, Eq, ...)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Write a function &lt;code&gt;g2&lt;/code&gt; that takes in a &lt;code&gt;Maybe Int&lt;/code&gt; and returns 0 if&#xA;it is given &lt;code&gt;Nothing&lt;/code&gt; and otherwise 10 more than the absolute value&#xA;of the int.&lt;/p&gt;</description>
     </item>
     <item>
       <title>For 1.4</title>
