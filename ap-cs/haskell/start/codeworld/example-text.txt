@@ -1,0 +1,8 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+import CodeWorld
+import qualified Data.Text as T
+
+main = drawingOf mynum
+mynum = lettering(T.pack(show(five_doubled)))
+five_doubled = 5 * 2
