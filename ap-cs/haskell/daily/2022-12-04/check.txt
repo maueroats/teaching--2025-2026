@@ -1,0 +1,54 @@
+type Interval = (Double, Double)
+
+m3 :: [Int] -> Maybe Int
+m3 _ = Nothing
+
+op :: [Maybe Int] -> Maybe Int
+op _ =  Nothing
+
+closest :: [Interval] -> Double -> Maybe Interval
+closest _ _ = Nothing
+
+imapper :: (Interval-> Maybe Interval) -> [Interval] -> [Interval]
+imapper _ _ = []
+
+
+ck_m3 = [m3 [1,2] == Nothing,
+         m3 [10,20,30,40,50] == Just 30,
+         m3 [] == Nothing,
+         m3 [3] == Nothing,
+         m3 [3,6,9] == Just 9,
+         m3 [3,6,9,12] == Just 9,
+         m3 [101..] == Just 103]
+  
+
+ck_op = [op [Just 3, Just 4, Just 10, Just 20] == Just 80,
+          op [Just 5, Nothing, Just 2, Just 1] == Nothing,
+          op [Nothing, Just 5] == Just 5,
+          op [Just 7] == Just 1 -- product of 0 things is 1
+          ]
+
+
+
+check_closest = [
+     closest [(5,2),(7,1)] 12 == Nothing,
+     closest [(5,2),(7,1)] 6.5 == Just (7,1),
+     closest [(5,2),(7,1)] 6 == Just (7,1),
+     closest [(5,2),(7,2)] 5.5 == Just (5,2)]
+
+fff :: Interval -> Maybe Interval
+fff (center, radius)
+      | radius >= 4   = Just (center, radius/2)
+      | otherwise     = Nothing
+
+check_i = imapper fff [(10,8), (20,2), (30,4)] == [(10,4),(30,2)]
+
+check = do
+  putStrLn "check_m3"
+  putStrLn $ show ck_m3
+  putStrLn "check_op"
+  putStrLn $ show ck_op
+  putStrLn "check_closest"
+  putStrLn $ show check_closest
+  putStrLn "check: imapper"
+  putStrLn $ show check_i

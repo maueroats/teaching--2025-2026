@@ -1,0 +1,107 @@
+
+-- Question 1: perfect squares between 100 and 10,000 exclusive
+cpsq :: Int -> Int -> Int
+cpsq m n = 0
+
+-- Question 2 Arithmetic sequence
+carith :: Int -> Int
+carith n = 0
+
+-- Question 3
+q3 = 0
+
+-- Question 4: number of ways that four positive integers can be multiplied to give 50
+
+numways :: Int -> Int
+numways target = 0
+
+-- Question 5: sqrt12
+
+s12n :: Int -> Float
+s12n n = 0.0
+
+-- Question 6
+sum28 :: [Int] -> Bool
+sum28 xs = False
+
+-- Question 7
+has22 :: [Int] -> Bool
+has22 xs = False
+
+-- Checks
+
+check_cpsq = [ 89 == cpsq 100 10000
+              ,7 == cpsq 525 900
+              ,21 == cpsq 50 800]
+
+check_carith = [ 51 == carith 259
+               , 19 == carith 100
+               ]
+
+check_numways = [16 == numways 39
+                ,40 == numways 50
+                ,4 == numways 13
+                ]
+
+-- i do not know if max relative error and absolute error is a good way
+close_h :: Float -> Float -> Bool
+close_h x y = abs(x-y) <= max eps (eps*abs(y))
+   where eps = 1e-4
+
+check_s12n = [close_h 3.4641016 (s12n 1)
+             , close_h 3.9324422 (s12n 2)
+             , close_h 3.9915464 (s12n 3)
+             , close_h 3.998943 (s12n 4)
+             ]
+             
+             
+check_sum28 = [sum28 [2,2,2,2]
+              ,not $ sum28 [2,2,2,2,2]
+              , sum28 [1,2,3,2,4,2,5,6,2,7]
+              , not $ sum28 [10,2,30,40,2,50,2]
+              , sum28 [10,2,30,40,2,50,2,60,2,70,2222]
+              ]
+
+check_has22 = [has22 [2,2]
+              ,not $ has22 [2]
+              ,not $ has22 []
+              ,has22 [2,0,2,2]
+              ,has22 [2,2,0,2,0]
+              ,has22 [2,0,2,2,1,2]
+              ,has22 [2,0,2,2,1,2,3]
+              ,not $ has22[2,1,2,3,2,4,2,5]
+              ,not $ has22 [1..20]
+              ]
+
+check = do
+  putStrLn "1. cpsq"
+  putStrLn $ show $ and check_cpsq
+  putStrLn $ show check_cpsq
+  putStrLn ""
+  putStrLn "2. carith"
+  putStrLn $ show $ and check_carith
+  putStrLn $ show check_carith
+  putStrLn ""
+  putStrLn "3. how many positive three digit numbers?"
+  putStrLn $ show $ 254 == q3
+  putStrLn ""
+  putStrLn "4. numways"
+  putStrLn $ show $ and check_numways
+  putStrLn $ show check_numways  
+  putStrLn ""
+  putStrLn "5. sqrt12"
+  putStrLn $ show $ and check_s12n
+  putStrLn $ show $ check_s12n  
+  putStrLn ""
+  putStrLn "6. sum28"
+  putStrLn $ show $ and check_sum28
+  putStrLn $ show $ check_sum28
+  putStrLn ""
+  putStrLn "7. has22"
+  putStrLn $ show $ and check_has22
+  putStrLn $ show $ check_has22
+  
+
+  
+main = check
+
