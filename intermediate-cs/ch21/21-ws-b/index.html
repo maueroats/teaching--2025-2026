@@ -33,7 +33,7 @@
   <meta itemprop="description" content="Moving colored dot animation, with a walkthrough including helper functions.">
   <meta itemprop="datePublished" content="2018-01-11T22:09:02-06:00">
   <meta itemprop="dateModified" content="2025-02-12T21:06:42-06:00">
-  <meta itemprop="wordCount" content="206">
+  <meta itemprop="wordCount" content="224">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="21. Worksheet B">
   <meta name="twitter:description" content="Moving colored dot animation, with a walkthrough including helper functions.">
@@ -1563,16 +1563,18 @@
 <ol>
 <li>Create a data definition for a type &ldquo;fc&rdquo; (for full-circle) that is able to store the location of the center, color, and radius of a dot.</li>
 <li>Write the actual struct definition.</li>
-<li>Test each feature (center, color, radius).</li>
+<li>Test each feature (center, color, radius) by making an example and
+using check-expect to show you can get each piece of information out.</li>
 <li>Write a function to create an image of an appropriate solid circle
-from a full-circle structure. (Signature: <code>fc -&gt; image</code>)</li>
+from a full-circle structure. (Signature: <code>mkcirc: fc -&gt; image</code>)</li>
 <li>Design and test a function to draw a given full circle at its position
 on a given background. (Signature <code>draw-fc: fc image -&gt; image</code>)</li>
 <li>Design and test a function <code>fc-move</code> that takes in a full-circle
 and a position, and returns a new full-circle with the same color
 and radius, but the position from the second argument.</li>
-<li>Write a function <code>fc-set-color</code>. Include a sensible purpose and contract.</li>
-<li>Write a function <code>fc-change-radius</code> that takes in a full-circle and an amount to change the radius. Include sensible purpose and contract.</li>
+<li>Write a function <code>fc-set-color</code>. Include a sensible signature and purpose.</li>
+<li>Write a function <code>fc-change-radius</code> that takes in a full-circle and
+an amount to change the radius. Include sensible signature and purpose.</li>
 <li>Create an animation of a full-circle randomly moving around the screen.</li>
 </ol>
 
