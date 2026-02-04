@@ -1,0 +1,20 @@
+{-# LANGUAGE OverloadedStrings #-}
+-- https://code.world/haskell#Pz8kTUcCLKMG2ZCV7pTL0rA
+import CodeWorld
+import qualified Data.Text as T
+
+type Model = Double
+
+main = activityOf start handler render_f
+
+start :: Model
+start = 0
+
+handler :: Event -> Model -> Model
+handler (TimePassing amount) t = t + amount
+handler _ state = state
+
+render_f :: Model -> Picture
+render_f t = lettering $ T.pack $ take 5 $ show t
+
+

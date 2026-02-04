@@ -1,0 +1,399 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Turtle 3 | WY CS</title>
+<meta name="description" content="Short review of turtle actions.">
+<meta property="og:url" content="https://wy-cs.info/ecs/python/turtle-3/">
+  <meta property="og:site_name" content="WY CS">
+  <meta property="og:title" content="Turtle 3">
+  <meta property="og:description" content="Short review of turtle actions.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ecs">
+    <meta property="article:published_time" content="2019-03-22T11:50:43-05:00">
+    <meta property="article:modified_time" content="2023-08-18T21:41:43-05:00">
+
+  <meta itemprop="name" content="Turtle 3">
+  <meta itemprop="description" content="Short review of turtle actions.">
+  <meta itemprop="datePublished" content="2019-03-22T11:50:43-05:00">
+  <meta itemprop="dateModified" content="2023-08-18T21:41:43-05:00">
+  <meta itemprop="wordCount" content="80">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Turtle 3">
+  <meta name="twitter:description" content="Short review of turtle actions.">
+<link rel="preload" href="/scss/main.min.9101c92c7735a87b33d942a3d29e4b82584fe84502745ff6e146c70714a4a596.css" as="style" integrity="sha256-kQHJLHc1qHsz2UKj0p5LglhP6EUCdF/24UbHBxSkpZY=" crossorigin="anonymous">
+<link href="/scss/main.min.9101c92c7735a87b33d942a3d29e4b82584fe84502745ff6e146c70714a4a596.css" rel="stylesheet" integrity="sha256-kQHJLHc1qHsz2UKj0p5LglhP6EUCdF/24UbHBxSkpZY=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">WY CS</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="/ecs/"><span>ECS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/intermediate-cs/"><span>IntermediateCS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ap-cs/"><span>AP CS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ai/"><span>AI</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ml/"><span>ML</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/nand/"><span>NAND</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Resources</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="td-sidebar-nav collapse td-sidebar-nav--search-disabled foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ecs-li">
+  <a href="/ecs/" title="Exploring CS" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-ecs"><span class="">ECS</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ecsscratch-li">
+  <input type="checkbox" id="m-ecsscratch-check"/>
+  <label for="m-ecsscratch-check"><a href="/ecs/scratch/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ecsscratch"><span class="">Scratch</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-intro-1a-li">
+  <input type="checkbox" id="m-ecsscratchvariables-intro-1a-check"/>
+  <label for="m-ecsscratchvariables-intro-1a-check"><a href="/ecs/scratch/variables-intro-1a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-intro-1a"><span class="">Intro: coins, burgers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-intro-1b-li">
+  <input type="checkbox" id="m-ecsscratchvariables-intro-1b-check"/>
+  <label for="m-ecsscratchvariables-intro-1b-check"><a href="/ecs/scratch/variables-intro-1b/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-intro-1b"><span class="">Variables Intro 1 Solution</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-intro-2a-li">
+  <input type="checkbox" id="m-ecsscratchvariables-intro-2a-check"/>
+  <label for="m-ecsscratchvariables-intro-2a-check"><a href="/ecs/scratch/variables-intro-2a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-intro-2a"><span class="">Intro: count to goal</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-intro-2b-li">
+  <input type="checkbox" id="m-ecsscratchvariables-intro-2b-check"/>
+  <label for="m-ecsscratchvariables-intro-2b-check"><a href="/ecs/scratch/variables-intro-2b/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-intro-2b"><span class="">Variables Intro 2 Solution</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-intro-3a-li">
+  <input type="checkbox" id="m-ecsscratchvariables-intro-3a-check"/>
+  <label for="m-ecsscratchvariables-intro-3a-check"><a href="/ecs/scratch/variables-intro-3a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-intro-3a"><span class="">Homer and Donut</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-intro-4a-li">
+  <input type="checkbox" id="m-ecsscratchvariables-intro-4a-check"/>
+  <label for="m-ecsscratchvariables-intro-4a-check"><a href="/ecs/scratch/variables-intro-4a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-intro-4a"><span class="">Hot Pepper and Cookie</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-6a-treasure-li">
+  <input type="checkbox" id="m-ecsscratchvariables-6a-treasure-check"/>
+  <label for="m-ecsscratchvariables-6a-treasure-check"><a href="/ecs/scratch/variables-6a-treasure/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-6a-treasure"><span class="">Treasure Hunt</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-7a-baseball-li">
+  <input type="checkbox" id="m-ecsscratchvariables-7a-baseball-check"/>
+  <label for="m-ecsscratchvariables-7a-baseball-check"><a href="/ecs/scratch/variables-7a-baseball/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-7a-baseball"><span class="">Running Bases</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-8a-drown-li">
+  <input type="checkbox" id="m-ecsscratchvariables-8a-drown-check"/>
+  <label for="m-ecsscratchvariables-8a-drown-check"><a href="/ecs/scratch/variables-8a-drown/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-8a-drown"><span class="">Air and Water</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-9a-dubtv-li">
+  <input type="checkbox" id="m-ecsscratchvariables-9a-dubtv-check"/>
+  <label for="m-ecsscratchvariables-9a-dubtv-check"><a href="/ecs/scratch/variables-9a-dubtv/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-9a-dubtv"><span class="">DubTV</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-a-pancake-li">
+  <input type="checkbox" id="m-ecsscratchvariables-a-pancake-check"/>
+  <label for="m-ecsscratchvariables-a-pancake-check"><a href="/ecs/scratch/variables-a-pancake/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-a-pancake"><span class="">Blueberry Pancakes</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-b-burning-li">
+  <input type="checkbox" id="m-ecsscratchvariables-b-burning-check"/>
+  <label for="m-ecsscratchvariables-b-burning-check"><a href="/ecs/scratch/variables-b-burning/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-b-burning"><span class="">Paper Burning</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchadventure-game-li">
+  <input type="checkbox" id="m-ecsscratchadventure-game-check"/>
+  <label for="m-ecsscratchadventure-game-check"><a href="/ecs/scratch/adventure-game/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchadventure-game"><span class="">Adventure Game</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchcorrections-quiz-1-li">
+  <input type="checkbox" id="m-ecsscratchcorrections-quiz-1-check"/>
+  <label for="m-ecsscratchcorrections-quiz-1-check"><a href="/ecs/scratch/corrections-quiz-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchcorrections-quiz-1"><span class="">Quiz 1 Corrections</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsscratchvariables-c-flying-li">
+  <input type="checkbox" id="m-ecsscratchvariables-c-flying-check"/>
+  <label for="m-ecsscratchvariables-c-flying-check"><a href="/ecs/scratch/variables-c-flying/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsscratchvariables-c-flying"><span class="">Flying</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ecspython-li">
+  <input type="checkbox" id="m-ecspython-check" checked/>
+  <label for="m-ecspython-check"><a href="/ecs/python/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ecspython"><span class="">Python</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecspythonreview-01-05-li">
+  <input type="checkbox" id="m-ecspythonreview-01-05-check"/>
+  <label for="m-ecspythonreview-01-05-check"><a href="/ecs/python/review-01-05/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecspythonreview-01-05"><span class="">Review 01-05</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecspythonreceipt-generator-li">
+  <input type="checkbox" id="m-ecspythonreceipt-generator-check"/>
+  <label for="m-ecspythonreceipt-generator-check"><a href="/ecs/python/receipt-generator/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecspythonreceipt-generator"><span class="">Receipt Generator</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecspythonmad-libs-li">
+  <input type="checkbox" id="m-ecspythonmad-libs-check"/>
+  <label for="m-ecspythonmad-libs-check"><a href="/ecs/python/mad-libs/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecspythonmad-libs"><span class="">Mad Libs</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecspythonturtle-1-li">
+  <input type="checkbox" id="m-ecspythonturtle-1-check"/>
+  <label for="m-ecspythonturtle-1-check"><a href="/ecs/python/turtle-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecspythonturtle-1"><span class="">Turtle 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecspythonturtle-2-li">
+  <input type="checkbox" id="m-ecspythonturtle-2-check"/>
+  <label for="m-ecspythonturtle-2-check"><a href="/ecs/python/turtle-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecspythonturtle-2"><span class="">Turtle 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ecspythonturtle-3-li">
+  <input type="checkbox" id="m-ecspythonturtle-3-check" checked/>
+  <label for="m-ecspythonturtle-3-check"><a href="/ecs/python/turtle-3/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-ecspythonturtle-3"><span class="td-sidebar-nav-active-item">Turtle 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecspythonstore-li">
+  <input type="checkbox" id="m-ecspythonstore-check"/>
+  <label for="m-ecspythonstore-check"><a href="/ecs/python/store/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecspythonstore"><span class="">Store</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecspythonadventure-1-li">
+  <input type="checkbox" id="m-ecspythonadventure-1-check"/>
+  <label for="m-ecspythonadventure-1-check"><a href="/ecs/python/adventure-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecspythonadventure-1"><span class="">Adventure 1</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ecsarduino-li">
+  <input type="checkbox" id="m-ecsarduino-check"/>
+  <label for="m-ecsarduino-check"><a href="/ecs/arduino/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ecsarduino"><span class="">Arduino</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsarduinoarduino-intro-li">
+  <input type="checkbox" id="m-ecsarduinoarduino-intro-check"/>
+  <label for="m-ecsarduinoarduino-intro-check"><a href="/ecs/arduino/arduino-intro/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsarduinoarduino-intro"><span class="">Arduino Intro</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsarduinoarduino-worksheet-1-li">
+  <input type="checkbox" id="m-ecsarduinoarduino-worksheet-1-check"/>
+  <label for="m-ecsarduinoarduino-worksheet-1-check"><a href="/ecs/arduino/arduino-worksheet-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsarduinoarduino-worksheet-1"><span class="">Arduino Worksheet 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsarduinopotentiometer-li">
+  <input type="checkbox" id="m-ecsarduinopotentiometer-check"/>
+  <label for="m-ecsarduinopotentiometer-check"><a href="/ecs/arduino/potentiometer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsarduinopotentiometer"><span class="">Potentiometer</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsarduinoflex-sensor-li">
+  <input type="checkbox" id="m-ecsarduinoflex-sensor-check"/>
+  <label for="m-ecsarduinoflex-sensor-check"><a href="/ecs/arduino/flex-sensor/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsarduinoflex-sensor"><span class="">Flex Sensor</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsarduinobutton-li">
+  <input type="checkbox" id="m-ecsarduinobutton-check"/>
+  <label for="m-ecsarduinobutton-check"><a href="/ecs/arduino/button/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsarduinobutton"><span class="">Button</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsarduinosimulator-li">
+  <input type="checkbox" id="m-ecsarduinosimulator-check"/>
+  <label for="m-ecsarduinosimulator-check"><a href="/ecs/arduino/simulator/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsarduinosimulator"><span class="">Simulator</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsarduinoall-commands-li">
+  <input type="checkbox" id="m-ecsarduinoall-commands-check"/>
+  <label for="m-ecsarduinoall-commands-check"><a href="/ecs/arduino/all-commands/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsarduinoall-commands"><span class="">All Commands</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ecsjavascript-li">
+  <input type="checkbox" id="m-ecsjavascript-check"/>
+  <label for="m-ecsjavascript-check"><a href="/ecs/javascript/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ecsjavascript"><span class="">Javascript</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsjavascriptfor-1-li">
+  <input type="checkbox" id="m-ecsjavascriptfor-1-check"/>
+  <label for="m-ecsjavascriptfor-1-check"><a href="/ecs/javascript/for-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsjavascriptfor-1"><span class="">Loops 1 (for)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsjavascriptfor-2-li">
+  <input type="checkbox" id="m-ecsjavascriptfor-2-check"/>
+  <label for="m-ecsjavascriptfor-2-check"><a href="/ecs/javascript/for-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsjavascriptfor-2"><span class="">Loops 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsjavascriptremainder-1-li">
+  <input type="checkbox" id="m-ecsjavascriptremainder-1-check"/>
+  <label for="m-ecsjavascriptremainder-1-check"><a href="/ecs/javascript/remainder-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsjavascriptremainder-1"><span class="">Remainder 1</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ecsdrive-ecs-li">
+  <input type="checkbox" id="m-ecsdrive-ecs-check"/>
+  <label for="m-ecsdrive-ecs-check"><a href="/ecs/drive-ecs/" title="Scratch Teacher Resources" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ecsdrive-ecs"><span class="">Teacher Scratch</span></a></label>
+  
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/maueroats/teaching--2025-2026/tree/main/www/content/ecs/python/turtle-3.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/edit/main/www/content/ecs/python/turtle-3.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/new/main/www/content/ecs/python?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/issues/new?title=Turtle%203" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  
+</div>
+
+            
+            
+	
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/ecs/">ECS</a></li>
+  <li class="breadcrumb-item">
+    <a href="/ecs/python/">Python</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    Turtle 3</li>
+  </ol>
+</nav>
+<div class="td-content">
+	<h1>Turtle 3</h1>
+	<div class="lead">Short review of turtle actions.</div>
+	<header class="article-meta">
+		
+  </header>
+	<ol>
+<li>
+<p>Make the picture below with three turtles. Use the same size shapes
+as you used in the other tangrams.</p>
+  <figure><img src="/ecs/python/turtle-3/tangram-3.png">
+  </figure>
+</li>
+<li>
+<p><em>Simple MadLib</em>.</p>
+<pre><code> number: 3
+ cost each: 2.95
+ plural noun: tomato plants
+ If I have 3 tomato plants and clone them all, then I have 6, costing $17.70 total.
+</code></pre>
+<p>Of course make it so that you can type different numbers and nouns.</p>
+</li>
+</ol>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    You should have the measurements of the tangram
+pieces in your notes. Use <a href="tangram-sizes.pdf">my
+diagram</a> if you need it.
+
+</div>
+
+
+	<div class="td-page-meta__lastmod">
+  Last modified August 18, 2023: <a data-proofer-ignore href="https://github.com/maueroats/teaching--2025-2026/commit/7352e874ce3f4f06ad847de97e1dbbf6523866ae">2022-2023 End State (7352e87)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Racket Docs" aria-label="Racket Docs">
+    <a target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Picturing Programs" aria-label="Picturing Programs">
+    <a target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Learn You a Haskell" aria-label="Learn You a Haskell">
+    <a target="_blank" rel="noopener" href="https://learnyouahaskell.github.io/" aria-label="Learn You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2026
+    <span class="td-footer__authors">A. Mauer-Oats</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.2c871db57a5e84fa41577f98690c48ddeb23f4de52c6f0ebe510761045285cd3.js" integrity="sha256-LIcdtXpehPpBV3&#43;YaQxI3esj9N5SxvDr5RB2EEUoXNM=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

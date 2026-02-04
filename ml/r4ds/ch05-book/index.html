@@ -1,0 +1,483 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Ch05 Book | WY CS</title>
+<meta name="description" content="A digest of some information from Chapter 5.">
+<meta property="og:url" content="https://wy-cs.info/ml/r4ds/ch05-book/">
+  <meta property="og:site_name" content="WY CS">
+  <meta property="og:title" content="Ch05 Book">
+  <meta property="og:description" content="A digest of some information from Chapter 5.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ml">
+    <meta property="article:published_time" content="2020-09-23T21:16:28-05:00">
+    <meta property="article:modified_time" content="2023-08-18T21:41:43-05:00">
+
+  <meta itemprop="name" content="Ch05 Book">
+  <meta itemprop="description" content="A digest of some information from Chapter 5.">
+  <meta itemprop="datePublished" content="2020-09-23T21:16:28-05:00">
+  <meta itemprop="dateModified" content="2023-08-18T21:41:43-05:00">
+  <meta itemprop="wordCount" content="386">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ch05 Book">
+  <meta name="twitter:description" content="A digest of some information from Chapter 5.">
+<link rel="preload" href="/scss/main.min.9101c92c7735a87b33d942a3d29e4b82584fe84502745ff6e146c70714a4a596.css" as="style" integrity="sha256-kQHJLHc1qHsz2UKj0p5LglhP6EUCdF/24UbHBxSkpZY=" crossorigin="anonymous">
+<link href="/scss/main.min.9101c92c7735a87b33d942a3d29e4b82584fe84502745ff6e146c70714a4a596.css" rel="stylesheet" integrity="sha256-kQHJLHc1qHsz2UKj0p5LglhP6EUCdF/24UbHBxSkpZY=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">WY CS</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/ecs/"><span>ECS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/intermediate-cs/"><span>IntermediateCS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ap-cs/"><span>AP CS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ai/"><span>AI</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/ml/"><span>ML</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/nand/"><span>NAND</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Resources</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="td-sidebar-nav collapse td-sidebar-nav--search-disabled foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-li">
+  <a href="/ml/" title="Machine Learning" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-ml"><span class="">ML</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlabout-li">
+  <input type="checkbox" id="m-mlabout-check"/>
+  <label for="m-mlabout-check"><a href="/ml/about/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlabout"><span class="">About this class</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlstartup-li">
+  <input type="checkbox" id="m-mlstartup-check"/>
+  <label for="m-mlstartup-check"><a href="/ml/startup/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlstartup"><span class="">ML Startup</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-mlr4ds-li">
+  <input type="checkbox" id="m-mlr4ds-check" checked/>
+  <label for="m-mlr4ds-check"><a href="/ml/r4ds/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-mlr4ds"><span class="">R for Data Science</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlr4dsch01-li">
+  <input type="checkbox" id="m-mlr4dsch01-check"/>
+  <label for="m-mlr4dsch01-check"><a href="/ml/r4ds/ch01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch01"><span class="">Ch01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlr4dsch02-li">
+  <input type="checkbox" id="m-mlr4dsch02-check"/>
+  <label for="m-mlr4dsch02-check"><a href="/ml/r4ds/ch02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch02"><span class="">Ch02</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlr4dsch03-li">
+  <input type="checkbox" id="m-mlr4dsch03-check"/>
+  <label for="m-mlr4dsch03-check"><a href="/ml/r4ds/ch03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch03"><span class="">Ch03</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-mlr4dsch05-book-li">
+  <input type="checkbox" id="m-mlr4dsch05-book-check" checked/>
+  <label for="m-mlr4dsch05-book-check"><a href="/ml/r4ds/ch05-book/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch05-book"><span class="td-sidebar-nav-active-item">Ch05 Book</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlr4dsch05-li">
+  <input type="checkbox" id="m-mlr4dsch05-check"/>
+  <label for="m-mlr4dsch05-check"><a href="/ml/r4ds/ch05/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch05"><span class="">Ch05 Problem Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlr4dsch05-project-li">
+  <input type="checkbox" id="m-mlr4dsch05-project-check"/>
+  <label for="m-mlr4dsch05-project-check"><a href="/ml/r4ds/ch05-project/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch05-project"><span class="">Ch05 Project</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlr4dsch07-li">
+  <input type="checkbox" id="m-mlr4dsch07-check"/>
+  <label for="m-mlr4dsch07-check"><a href="/ml/r4ds/ch07/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch07"><span class="">Ch07</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlr4dsch13-li">
+  <input type="checkbox" id="m-mlr4dsch13-check"/>
+  <label for="m-mlr4dsch13-check"><a href="/ml/r4ds/ch13/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch13"><span class="">Ch13</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlr4dsch14-li">
+  <input type="checkbox" id="m-mlr4dsch14-check"/>
+  <label for="m-mlr4dsch14-check"><a href="/ml/r4ds/ch14/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlr4dsch14"><span class="">Ch14</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-mlrmisc-li">
+  <input type="checkbox" id="m-mlrmisc-check"/>
+  <label for="m-mlrmisc-check"><a href="/ml/rmisc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-mlrmisc"><span class="">R: Misc</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlrmiscjupyter-graphing-li">
+  <input type="checkbox" id="m-mlrmiscjupyter-graphing-check"/>
+  <label for="m-mlrmiscjupyter-graphing-check"><a href="/ml/rmisc/jupyter-graphing/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlrmiscjupyter-graphing"><span class="">Jupyter Graphing</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlrmiscna-vs-null-li">
+  <input type="checkbox" id="m-mlrmiscna-vs-null-check"/>
+  <label for="m-mlrmiscna-vs-null-check"><a href="/ml/rmisc/na-vs-null/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlrmiscna-vs-null"><span class="">NA vs NULL</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlrmisclookup-tables-li">
+  <input type="checkbox" id="m-mlrmisclookup-tables-check"/>
+  <label for="m-mlrmisclookup-tables-check"><a href="/ml/rmisc/lookup-tables/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlrmisclookup-tables"><span class="">Lookup Tables</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlrmiscstdinc-li">
+  <input type="checkbox" id="m-mlrmiscstdinc-check"/>
+  <label for="m-mlrmiscstdinc-check"><a href="/ml/rmisc/stdinc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlrmiscstdinc"><span class="">Standard Header</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlrmisctimeseries-li">
+  <input type="checkbox" id="m-mlrmisctimeseries-check"/>
+  <label for="m-mlrmisctimeseries-check"><a href="/ml/rmisc/timeseries/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlrmisctimeseries"><span class="">Timeseries</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-mlisl-li">
+  <input type="checkbox" id="m-mlisl-check"/>
+  <label for="m-mlisl-check"><a href="/ml/isl/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-mlisl"><span class="">ISL</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-mlislch02-li">
+  <input type="checkbox" id="m-mlislch02-check"/>
+  <label for="m-mlislch02-check"><a href="/ml/isl/ch02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-mlislch02"><span class="">02. StatLearn</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlislch0202-quiz-a-li">
+  <input type="checkbox" id="m-mlislch0202-quiz-a-check"/>
+  <label for="m-mlislch0202-quiz-a-check"><a href="/ml/isl/ch02/02-quiz-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlislch0202-quiz-a"><span class="">02 Quiz A</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlislsem-ifinal-li">
+  <input type="checkbox" id="m-mlislsem-ifinal-check"/>
+  <label for="m-mlislsem-ifinal-check"><a href="/ml/isl/sem-i/final/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlislsem-ifinal"><span class="">Sem.1 Final</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-mldaily-li">
+  <input type="checkbox" id="m-mldaily-check"/>
+  <label for="m-mldaily-check"><a href="/ml/daily/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-mldaily"><span class="">Daily</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily20210421-li">
+  <input type="checkbox" id="m-mldaily20210421-check"/>
+  <label for="m-mldaily20210421-check"><a href="/ml/daily/20210421/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily20210421"><span class="">p-values</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily2021-04-26-li">
+  <input type="checkbox" id="m-mldaily2021-04-26-check"/>
+  <label for="m-mldaily2021-04-26-check"><a href="/ml/daily/2021-04-26/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily2021-04-26"><span class="">2021-04-26</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily2021-05-17-li">
+  <input type="checkbox" id="m-mldaily2021-05-17-check"/>
+  <label for="m-mldaily2021-05-17-check"><a href="/ml/daily/2021-05-17/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily2021-05-17"><span class="">2021-05-17</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily20210601-dogs-li">
+  <input type="checkbox" id="m-mldaily20210601-dogs-check"/>
+  <label for="m-mldaily20210601-dogs-check"><a href="/ml/daily/20210601-dogs/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily20210601-dogs"><span class="">2021-06-01 Dogs</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily2022-08-24-li">
+  <input type="checkbox" id="m-mldaily2022-08-24-check"/>
+  <label for="m-mldaily2022-08-24-check"><a href="/ml/daily/2022-08-24/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily2022-08-24"><span class="">2022-08-24 E, Var Practice</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily2022-08-31-li">
+  <input type="checkbox" id="m-mldaily2022-08-31-check"/>
+  <label for="m-mldaily2022-08-31-check"><a href="/ml/daily/2022-08-31/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily2022-08-31"><span class="">2022-08-31</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily2022-09-02-li">
+  <input type="checkbox" id="m-mldaily2022-09-02-check"/>
+  <label for="m-mldaily2022-09-02-check"><a href="/ml/daily/2022-09-02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily2022-09-02"><span class="">2022-09-02</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldailyindependence-li">
+  <input type="checkbox" id="m-mldailyindependence-check"/>
+  <label for="m-mldailyindependence-check"><a href="/ml/daily/independence/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldailyindependence"><span class="">Independence</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily2022-11-04-li">
+  <input type="checkbox" id="m-mldaily2022-11-04-check"/>
+  <label for="m-mldaily2022-11-04-check"><a href="/ml/daily/2022-11-04/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily2022-11-04"><span class="">2022-11-04 MtF</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldaily2023-01-23-li">
+  <input type="checkbox" id="m-mldaily2023-01-23-check"/>
+  <label for="m-mldaily2023-01-23-check"><a href="/ml/daily/2023-01-23/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldaily2023-01-23"><span class="">2023-01-23 Weekly</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-mldata-li">
+  <input type="checkbox" id="m-mldata-check"/>
+  <label for="m-mldata-check"><a href="/ml/data/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-mldata"><span class="">Datasets</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldatasources-li">
+  <input type="checkbox" id="m-mldatasources-check"/>
+  <label for="m-mldatasources-check"><a href="/ml/data/sources/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldatasources"><span class="">Sources</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldataswiss-dog-data-li">
+  <input type="checkbox" id="m-mldataswiss-dog-data-check"/>
+  <label for="m-mldataswiss-dog-data-check"><a href="/ml/data/swiss-dog-data/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldataswiss-dog-data"><span class="">Dog Data</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mldatastudent-li">
+  <input type="checkbox" id="m-mldatastudent-check"/>
+  <label for="m-mldatastudent-check"><a href="/ml/data/student/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mldatastudent"><span class="">Student Achievement</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-mlfast-ai-li">
+  <input type="checkbox" id="m-mlfast-ai-check"/>
+  <label for="m-mlfast-ai-check"><a href="/ml/fast-ai/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-mlfast-ai"><span class="">Fast AI</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlfast-aistart-li">
+  <input type="checkbox" id="m-mlfast-aistart-check"/>
+  <label for="m-mlfast-aistart-check"><a href="/ml/fast-ai/start/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlfast-aistart"><span class="">Start</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlfast-ailesson-00-li">
+  <input type="checkbox" id="m-mlfast-ailesson-00-check"/>
+  <label for="m-mlfast-ailesson-00-check"><a href="/ml/fast-ai/lesson-00/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlfast-ailesson-00"><span class="">Lesson 00</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlfast-ailesson-01-li">
+  <input type="checkbox" id="m-mlfast-ailesson-01-check"/>
+  <label for="m-mlfast-ailesson-01-check"><a href="/ml/fast-ai/lesson-01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlfast-ailesson-01"><span class="">Lesson 01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-mlfast-ailesson-02-li">
+  <input type="checkbox" id="m-mlfast-ailesson-02-check"/>
+  <label for="m-mlfast-ailesson-02-check"><a href="/ml/fast-ai/lesson-02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-mlfast-ailesson-02"><span class="">Lesson 02</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/maueroats/teaching--2025-2026/tree/main/www/content/ML/R4DS/ch05-book.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/edit/main/www/content/ML/R4DS/ch05-book.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/new/main/www/content/ML/R4DS?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/issues/new?title=Ch05%20Book" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#general">General</a></li>
+    <li><a href="#summarizing-functions-56">Summarizing Functions (5.6)</a></li>
+    <li><a href="#window-functions">Window functions</a>
+      <ul>
+        <li><a href="#common-accumulating-functions">Common accumulating functions</a></li>
+        <li><a href="#common-other-functions">Common other functions</a></li>
+        <li><a href="#uncommon-ranking-functions">Uncommon: Ranking Functions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    
+            
+	
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/ml/">ML</a></li>
+  <li class="breadcrumb-item">
+    <a href="/ml/r4ds/">R for Data Science</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    Ch05 Book</li>
+  </ol>
+</nav>
+<div class="td-content">
+	<h1>Ch05 Book</h1>
+	<div class="lead">A digest of some information from Chapter 5.</div>
+	<header class="article-meta">
+		
+  </header>
+	<p>Note: three assignments are recommended: 5.3-5.5, 5.6,
+5.7. Combining the last two was too much work.</p>
+<h2 id="general">General</h2>
+<p>Many summary functions do not work if the data contains <code>NA</code>.
+The <code>na.rm</code> option causes them to be ignored, or <code>drop_na()</code> gets rid
+of them in the pipe. There are other methods we will learn later.</p>
+<h2 id="summarizing-functions-56">Summarizing Functions (5.6)</h2>
+<ul>
+<li>mean</li>
+<li>median</li>
+<li>sd = standard deviation (will learn later if you do not know)</li>
+<li>n(): how many values are in the group</li>
+<li>n_distinct: how many distinct values</li>
+<li>sum</li>
+<li>min, max</li>
+<li>quantile(data,0.25): produces a single number, a value that
+is greater than 25% of the data values at less than the remaining 75%.
+Read
+<code>?quantile</code> for a surprising amount of technical information.</li>
+<li>ntile(data,n): produces a column of numbers giving which of the n
+bins the input numbers fall into. Outputs number from 1 to n inclusive.</li>
+<li>mad = median absolute deviation</li>
+<li>IQR = interquartile range (Q3-Q1)</li>
+</ul>
+<p>Detail Notes: a boolean TRUE counts as the number 1 and FALSE counts
+as 0. Summing booleans gives how many trues. Finding the mean of
+booleans gives the proportion that are true.</p>
+<p>Boolean <code>is.na</code> is used to find out how many NAs are in the data.</p>
+<h2 id="window-functions">Window functions</h2>
+<p>Source: <a href="https://cran.r-project.org/web/packages/dplyr/vignettes/window-functions.html">window-functions vignette</a>.</p>
+<p>These functions are normally used only on grouped data.</p>
+<h3 id="common-accumulating-functions">Common accumulating functions</h3>
+<ul>
+<li>cumsum: the cumulative sum</li>
+<li>cummean: the cumulative mean</li>
+<li>cummin: least value so far</li>
+<li>cummax: greatest value so far</li>
+<li>cumall: boolean, true if every value so far is true (like and; once false it
+stays false)</li>
+<li>cumany: boolean, true if any value so far is true (like &ldquo;or&rdquo;; once true it
+stays true)</li>
+</ul>
+<h3 id="common-other-functions">Common other functions</h3>
+<ul>
+<li>min_rank: order within the window</li>
+<li>lag: the previous item in the vector</li>
+<li>lead: the next item in the vector</li>
+</ul>
+<h3 id="uncommon-ranking-functions">Uncommon: Ranking Functions</h3>
+<p>There are a ton of ranking functions because:</p>
+<ol>
+<li>there are many ways ties can be broken</li>
+<li>everybody wants to rank everything</li>
+</ol>
+<ul>
+<li>row_number</li>
+<li>min_rank</li>
+<li>dense_rank</li>
+<li>cume_dist: proportion of values &lt;= current value</li>
+<li>percent_rank: proportion of values &lt; current value</li>
+</ul>
+<p>Example from source that shows the difference between these functions.</p>
+<pre tabindex="0"><code>x &lt;- c(1, 1, 2, 2, 2)
+row_number(x)
+#&gt; [1] 1 2 3 4 5
+min_rank(x)
+#&gt; [1] 1 1 3 3 3
+dense_rank(x)
+#&gt; [1] 1 1 2 2 2
+cume_dist(x)
+#&gt; [1] 0.4 0.4 1.0 1.0 1.0
+percent_rank(x)
+#&gt; [1] 0.0 0.0 0.5 0.5 0.5
+</code></pre>
+	<div class="td-page-meta__lastmod">
+  Last modified August 18, 2023: <a data-proofer-ignore href="https://github.com/maueroats/teaching--2025-2026/commit/7352e874ce3f4f06ad847de97e1dbbf6523866ae">2022-2023 End State (7352e87)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Racket Docs" aria-label="Racket Docs">
+    <a target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Picturing Programs" aria-label="Picturing Programs">
+    <a target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Learn You a Haskell" aria-label="Learn You a Haskell">
+    <a target="_blank" rel="noopener" href="https://learnyouahaskell.github.io/" aria-label="Learn You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2026
+    <span class="td-footer__authors">A. Mauer-Oats</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.2c871db57a5e84fa41577f98690c48ddeb23f4de52c6f0ebe510761045285cd3.js" integrity="sha256-LIcdtXpehPpBV3&#43;YaQxI3esj9N5SxvDr5RB2EEUoXNM=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

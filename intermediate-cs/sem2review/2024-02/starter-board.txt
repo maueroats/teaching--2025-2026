@@ -1,0 +1,24 @@
+(define STARTER-1-FT-LIST
+   (list (make-ft (make-posn 3 2) 8) (make-ft (make-posn 1 3) 7)
+         (make-ft (make-posn 2 3) 6) (make-ft (make-posn 2 2) 5)
+         (make-ft (make-posn 1 2) 4) (make-ft (make-posn 3 3) 3)
+         (make-ft (make-posn 2 1) 2) (make-ft (make-posn 1 1) 1)
+         (make-ft (make-posn 3 1) 0)))
+
+(define STARTER-1
+  (make-g STARTER-1-FT-LIST
+          INVALID
+          empty))
+
+(define STARTER-2-FT-LIST
+  (list (make-ft (make-posn 3 3) 8) (make-ft (make-posn 1 3) 7)
+        (make-ft (make-posn 3 1) 6) (make-ft (make-posn 2 3) 5) 
+        (make-ft (make-posn 1 1) 4) (make-ft (make-posn 2 1) 3)
+        (make-ft (make-posn 1 2) 2) (make-ft (make-posn 3 2) 0)
+        (make-ft (make-posn 2 2) 1)))
+
+(define STARTER-2
+  (make-g STARTER-2-FT-LIST
+          INVALID
+          empty))
+

@@ -1,0 +1,45 @@
+{-# LANGUAGE OverloadedStrings #-}
+import CodeWorld
+data GameState = GameState Double Double Int deriving (Show, Eq)
+ 
+draw_handler :: GameState -> Picture
+
+draw_handler (GameState radius solid_radius n) =
+  pictures [ circle radius, 
+             colored (pick_color n) $ solidCircle solid_radius, 
+             coordinatePlane ]
+ 
+event_handler :: Event -> GameState -> GameState
+
+event_handler (PointerMovement (x,y)) (GameState _ solidR n) =
+   GameState new_radius solidR n
+     where new_radius = sqrt $ x*x+y*y
+  
+event_handler (PointerPress (x,y)) (GameState _ _ n) =
+   GameState new_radius new_radius n
+     where new_radius = sqrt $ x*x+y*y
+ 
+event_handler (KeyPress _) (GameState radius solidR n) =
+  GameState radius solidR (3 - n)
+  
+event_handler _ state = state
+ 
+main = activityOf demo_state event_handler draw_handler
+ 
+-- key press to change the color of the circle
+-- changes needed
+-- [X] 1. draw handler has to use n to control color
+--    -> write pick_color:: Int ->Color
+-- [X] 2. key handler to change the number n in the game state
+ 
+pick_color :: Int -> Color
+pick_color 1 = orange
+pick_color 2 = blue
+ 
+testing = [
+  event_handler (KeyPress "a") (GameState 6 2 1) == GameState 6 2 2,
+  event_handler (KeyPress "x") (GameState 5 3 2) == GameState 5 3 1
+  ]
+ 
+demo_state = GameState 7 0 1
+-- main = drawingOf $ draw_handler demo_state

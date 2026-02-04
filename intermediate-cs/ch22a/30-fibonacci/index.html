@@ -1,0 +1,193 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>22a. Fibonacci | WY CS</title>
+<meta name="description" content="Introduction to recursion using Fibonacci numbers.">
+<meta property="og:url" content="https://wy-cs.info/intermediate-cs/ch22a/30-fibonacci/">
+  <meta property="og:site_name" content="WY CS">
+  <meta property="og:title" content="22a. Fibonacci">
+  <meta property="og:description" content="Introduction to recursion using Fibonacci numbers.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="intermediate-cs">
+    <meta property="article:published_time" content="2018-02-26T11:49:56-06:00">
+    <meta property="article:modified_time" content="2023-08-18T21:41:43-05:00">
+
+  <meta itemprop="name" content="22a. Fibonacci">
+  <meta itemprop="description" content="Introduction to recursion using Fibonacci numbers.">
+  <meta itemprop="datePublished" content="2018-02-26T11:49:56-06:00">
+  <meta itemprop="dateModified" content="2023-08-18T21:41:43-05:00">
+  <meta itemprop="wordCount" content="70">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="22a. Fibonacci">
+  <meta name="twitter:description" content="Introduction to recursion using Fibonacci numbers.">
+<link rel="preload" href="/scss/main.min.9101c92c7735a87b33d942a3d29e4b82584fe84502745ff6e146c70714a4a596.css" as="style" integrity="sha256-kQHJLHc1qHsz2UKj0p5LglhP6EUCdF/24UbHBxSkpZY=" crossorigin="anonymous">
+<link href="/scss/main.min.9101c92c7735a87b33d942a3d29e4b82584fe84502745ff6e146c70714a4a596.css" rel="stylesheet" integrity="sha256-kQHJLHc1qHsz2UKj0p5LglhP6EUCdF/24UbHBxSkpZY=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">WY CS</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/ecs/"><span>ECS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/intermediate-cs/"><span>IntermediateCS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ap-cs/"><span>AP CS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ai/"><span>AI</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ml/"><span>ML</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/nand/"><span>NAND</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Resources</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-default td-outer">
+      <main role="main" class="td-main">
+        <h2 id="fibonacci">Fibonacci</h2>
+<p>1,1,2,3,5,8,&hellip;</p>
+<ol>
+<li>What are next three?</li>
+<li>How to number them?</li>
+</ol>
+<hr>
+<h2 id="fibonacci-1">Fibonacci</h2>
+<table>
+  <thead>
+      <tr>
+          <th>n</th>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>fib(n)</td>
+          <td>1</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>5</td>
+          <td>8</td>
+          <td>13</td>
+      </tr>
+  </tbody>
+</table>
+<p>fib(8) = ?</p>
+<hr>
+<h2 id="fibonacci-2">Fibonacci</h2>
+<p>Where does it start?</p>
+<p><code>fib(0) = 1</code></p>
+<p><code>fib(1) = 1</code></p>
+<p>Pattern?</p>
+<p><code>fib(102) = ?</code></p>
+<hr>
+<h2 id="fibonacci-3">Fibonacci</h2>
+<p>Write the function <code>(fib n)</code>.</p>
+<p>Use a conditional.</p>
+<hr>
+<h2 id="fibonacci-4">Fibonacci</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">fib</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">...</span> <span style="color:#000;font-weight:bold">]))</span><span style="color:#a40000">
+</span></span></span></code></pre></div><hr>
+
+      </main>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Racket Docs" aria-label="Racket Docs">
+    <a target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Picturing Programs" aria-label="Picturing Programs">
+    <a target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Learn You a Haskell" aria-label="Learn You a Haskell">
+    <a target="_blank" rel="noopener" href="https://learnyouahaskell.github.io/" aria-label="Learn You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2026
+    <span class="td-footer__authors">A. Mauer-Oats</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.2c871db57a5e84fa41577f98690c48ddeb23f4de52c6f0ebe510761045285cd3.js" integrity="sha256-LIcdtXpehPpBV3&#43;YaQxI3esj9N5SxvDr5RB2EEUoXNM=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

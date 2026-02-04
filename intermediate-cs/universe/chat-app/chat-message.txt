@@ -1,0 +1,17 @@
+#lang racket
+(provide (all-defined-out))
+;; version 2 of message for chat app
+;; "chat-message.rkt"
+
+(define-struct chat-message (from text) #:prefab)
+
+(define (good-chat-message? x)
+  (and (chat-message? x)
+       (string? (chat-message-from x))
+       (string? (chat-message-text x))))
+
+#|
+(good-chat-message? "Bad message")
+(good-chat-message? (make-chat-message "Doc Mo" "Greetings"))
+(good-chat-message? (make-chat-message 5 "Nooo"))
+|#

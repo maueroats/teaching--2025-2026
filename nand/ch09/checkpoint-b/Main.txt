@@ -1,0 +1,64 @@
+class Main {
+
+    function void main() {
+        var int n;
+        var Array nums;
+        var int k;
+        var Prime q;
+
+        do Output.printString("3 divides 24? ");
+        do Output.printInt(Prime.divides(3,24));
+        do Output.println();
+
+        do Output.printString("isqrt(31) = ");
+        do Output.printInt(Prime.isqrt(31));
+        do Output.println();
+
+        do Output.printString("countDivisors(24) = ");
+        let n = Prime.countDivisors(24);
+        do Output.printInt(n);
+        do Output.println();
+
+        do Output.printString("divisors(24)");
+        do Output.println();
+
+        let nums = Prime.divisors(24);
+
+        let k = 0;
+        while(k<n) {
+            do Output.printInt(nums[k]);
+            do Output.printChar(32);
+            let k = k + 1;
+        }
+        do Output.println();
+
+        
+        do Output.printString("Prime.new(10)");
+        do Output.println();
+
+        let q = Prime.new(10);
+        let k = 0;
+        while (k < (q.getNPrimes())) {
+            do Output.printInt(q.getPrime(k));
+            do Output.printChar(32);
+            let k = k + 1;
+        }
+        do Output.println();
+
+
+        do Output.printString("7th prime: ");
+        do Output.printInt(q.getPrime(7-1));
+        do Output.println();
+        
+        do Output.printString("is 29 a known composite? ");
+        do Output.printInt(q.isKnownComposite(29));
+        do Output.println();
+        
+        do Output.printString("is 23*59 a known composite? ");
+        do Output.printInt(q.isKnownComposite(23*59));
+        do Output.println();
+        
+        return;
+                
+    }
+}

@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void printMazeInt(int[][]m) {
+        StringBuffer answer = new StringBuffer(); // String answer = "";
+        for(int r=0; r<m.length; r++) {
+            for(int c=0; c<m[r].length; c++) {
+                answer.append(m[r][c] + " ");     // answer += (m[r][c] + " ");
+            }
+            answer.append("\n");                  // answer += "\n"
+        }
+        System.out.println(answer.toString());
+    }
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int nrows = s.nextInt();
+        int ncols = s.nextInt();
+        char[][] maze1 = new char[nrows][ncols];
+        int[][]maze2 = new int[nrows][ncols];
+
+        // think about how you want to represent blocked squares
+        // you might not want to do it this way
+        int BLOCKED = -1;
+
+        for(int r=0;r<nrows;r++) {
+            String one = s.next();
+            for(int c=0; c<ncols; c++) {
+                char a = one.charAt(c);
+                maze1[r][c] = a;
+                if (a == 'X') {
+                    maze2[r][c] = BLOCKED;
+                } else if (a == 'B') {
+                    // Something should happen here
+                    System.out.println("You missed doing something");
+                } else if (a == 'W') {
+                    System.out.println("You found the starting spot");
+                } else if (a == '.') {
+                    // Do you want to manage this case here?
+                }
+            }
+        }
+        printMazeInt(maze2);
+    }
+}

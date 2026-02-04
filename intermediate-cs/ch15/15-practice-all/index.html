@@ -1,0 +1,1665 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>15. Practice All | WY CS</title>
+<meta name="description" content="Do all of this work in a single Racket file. You need to turn this assignment in on classroom. You may attach your solution file or copy and paste the code as a private comment and mark the assignment complete.
+Read Section 15.6 (Unnecessary conditionals) to review how to simplify. (PDF page 230ff.)
+Note to book readers: I disagree with the author about section 15.7 (nested conditionals) so I suggest not reading it. If you need to put conditionals inside of conditionals, make a helper function.">
+<meta property="og:url" content="https://wy-cs.info/intermediate-cs/ch15/15-practice-all/">
+  <meta property="og:site_name" content="WY CS">
+  <meta property="og:title" content="15. Practice All">
+  <meta property="og:description" content="Do all of this work in a single Racket file. You need to turn this assignment in on classroom. You may attach your solution file or copy and paste the code as a private comment and mark the assignment complete.
+Read Section 15.6 (Unnecessary conditionals) to review how to simplify. (PDF page 230ff.)
+Note to book readers: I disagree with the author about section 15.7 (nested conditionals) so I suggest not reading it. If you need to put conditionals inside of conditionals, make a helper function.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="intermediate-cs">
+    <meta property="article:published_time" content="2020-01-15T10:06:15-06:00">
+    <meta property="article:modified_time" content="2023-08-18T21:41:43-05:00">
+
+  <meta itemprop="name" content="15. Practice All">
+  <meta itemprop="description" content="Do all of this work in a single Racket file. You need to turn this assignment in on classroom. You may attach your solution file or copy and paste the code as a private comment and mark the assignment complete.
+Read Section 15.6 (Unnecessary conditionals) to review how to simplify. (PDF page 230ff.)
+Note to book readers: I disagree with the author about section 15.7 (nested conditionals) so I suggest not reading it. If you need to put conditionals inside of conditionals, make a helper function.">
+  <meta itemprop="datePublished" content="2020-01-15T10:06:15-06:00">
+  <meta itemprop="dateModified" content="2023-08-18T21:41:43-05:00">
+  <meta itemprop="wordCount" content="205">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="15. Practice All">
+  <meta name="twitter:description" content="Do all of this work in a single Racket file. You need to turn this assignment in on classroom. You may attach your solution file or copy and paste the code as a private comment and mark the assignment complete.
+Read Section 15.6 (Unnecessary conditionals) to review how to simplify. (PDF page 230ff.)
+Note to book readers: I disagree with the author about section 15.7 (nested conditionals) so I suggest not reading it. If you need to put conditionals inside of conditionals, make a helper function.">
+<link rel="preload" href="/scss/main.min.9101c92c7735a87b33d942a3d29e4b82584fe84502745ff6e146c70714a4a596.css" as="style" integrity="sha256-kQHJLHc1qHsz2UKj0p5LglhP6EUCdF/24UbHBxSkpZY=" crossorigin="anonymous">
+<link href="/scss/main.min.9101c92c7735a87b33d942a3d29e4b82584fe84502745ff6e146c70714a4a596.css" rel="stylesheet" integrity="sha256-kQHJLHc1qHsz2UKj0p5LglhP6EUCdF/24UbHBxSkpZY=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">WY CS</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/ecs/"><span>ECS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/intermediate-cs/"><span>IntermediateCS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ap-cs/"><span>AP CS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ai/"><span>AI</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ml/"><span>ML</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/nand/"><span>NAND</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Resources</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="td-sidebar-nav collapse td-sidebar-nav--search-disabled foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-intermediate-cs-li">
+  <a href="/intermediate-cs/" title="Intermediate CS" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-intermediate-cs"><span class="">IntermediateCS</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch01-li">
+  <input type="checkbox" id="m-intermediate-csch01-check"/>
+  <label for="m-intermediate-csch01-check"><a href="/intermediate-cs/ch01/" title="1. Introduction" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch01"><span class="">1. Intro</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch01ch01b-review-li">
+  <input type="checkbox" id="m-intermediate-csch01ch01b-review-check"/>
+  <label for="m-intermediate-csch01ch01b-review-check"><a href="/intermediate-cs/ch01/ch01b-review/" title="HW 01 B" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch01ch01b-review"><span class="">1.B</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch01ch01c-li">
+  <input type="checkbox" id="m-intermediate-csch01ch01c-check"/>
+  <label for="m-intermediate-csch01ch01c-check"><a href="/intermediate-cs/ch01/ch01c/" title="HW 01 C" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch01ch01c"><span class="">1.C</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch01ch01e-li">
+  <input type="checkbox" id="m-intermediate-csch01ch01e-check"/>
+  <label for="m-intermediate-csch01ch01e-check"><a href="/intermediate-cs/ch01/ch01e/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch01ch01e"><span class="">01.E</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch01ch01quiza-li">
+  <input type="checkbox" id="m-intermediate-csch01ch01quiza-check"/>
+  <label for="m-intermediate-csch01ch01quiza-check"><a href="/intermediate-cs/ch01/ch01quiza/" title="Ch01.QuizA" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch01ch01quiza"><span class="">1.Quiz A</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch03-li">
+  <input type="checkbox" id="m-intermediate-csch03-check"/>
+  <label for="m-intermediate-csch03-check"><a href="/intermediate-cs/ch03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch03"><span class="">3. Images</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch03book-pictures-li">
+  <input type="checkbox" id="m-intermediate-csch03book-pictures-check"/>
+  <label for="m-intermediate-csch03book-pictures-check"><a href="/intermediate-cs/ch03/book-pictures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch03book-pictures"><span class="">Book Pictures</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch03additional-exercises-li">
+  <input type="checkbox" id="m-intermediate-csch03additional-exercises-check"/>
+  <label for="m-intermediate-csch03additional-exercises-check"><a href="/intermediate-cs/ch03/additional-exercises/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch03additional-exercises"><span class="">Exercises</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch03tangrams-li">
+  <input type="checkbox" id="m-intermediate-csch03tangrams-check"/>
+  <label for="m-intermediate-csch03tangrams-check"><a href="/intermediate-cs/ch03/tangrams/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch03tangrams"><span class="">Tangrams</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch03ch03-art-project-li">
+  <input type="checkbox" id="m-intermediate-csch03ch03-art-project-check"/>
+  <label for="m-intermediate-csch03ch03-art-project-check"><a href="/intermediate-cs/ch03/ch03-art-project/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch03ch03-art-project"><span class="">Art Project</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch04-li">
+  <input type="checkbox" id="m-intermediate-csch04-check"/>
+  <label for="m-intermediate-csch04-check"><a href="/intermediate-cs/ch04/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch04"><span class="">4. Functions</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch04under-li">
+  <input type="checkbox" id="m-intermediate-csch04under-check"/>
+  <label for="m-intermediate-csch04under-check"><a href="/intermediate-cs/ch04/under/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch04under"><span class="">Ch 04-05 Worksheets</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch04undersample-design-process-li">
+  <input type="checkbox" id="m-intermediate-csch04undersample-design-process-check"/>
+  <label for="m-intermediate-csch04undersample-design-process-check"><a href="/intermediate-cs/ch04/under/sample-design-process/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch04undersample-design-process"><span class="">Sample Design Process</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch06-li">
+  <input type="checkbox" id="m-intermediate-csch06-check"/>
+  <label for="m-intermediate-csch06-check"><a href="/intermediate-cs/ch06/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch06"><span class="">6. Animations I</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06animation0-li">
+  <input type="checkbox" id="m-intermediate-csch06animation0-check"/>
+  <label for="m-intermediate-csch06animation0-check"><a href="/intermediate-cs/ch06/animation0/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06animation0"><span class="">Animations Summary</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06animation1-li">
+  <input type="checkbox" id="m-intermediate-csch06animation1-check"/>
+  <label for="m-intermediate-csch06animation1-check"><a href="/intermediate-cs/ch06/animation1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06animation1"><span class="">Animations Intro Slides</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06animation2-li">
+  <input type="checkbox" id="m-intermediate-csch06animation2-check"/>
+  <label for="m-intermediate-csch06animation2-check"><a href="/intermediate-cs/ch06/animation2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06animation2"><span class="">Animations Outline</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06animation3-li">
+  <input type="checkbox" id="m-intermediate-csch06animation3-check"/>
+  <label for="m-intermediate-csch06animation3-check"><a href="/intermediate-cs/ch06/animation3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06animation3"><span class="">Animations Key, Mouse</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06examples-li">
+  <input type="checkbox" id="m-intermediate-csch06examples-check"/>
+  <label for="m-intermediate-csch06examples-check"><a href="/intermediate-cs/ch06/examples/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06examples"><span class="">Animation Examples</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06portfolio-1-li">
+  <input type="checkbox" id="m-intermediate-csch06portfolio-1-check"/>
+  <label for="m-intermediate-csch06portfolio-1-check"><a href="/intermediate-cs/ch06/portfolio-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06portfolio-1"><span class="">Animation Portfolio I</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06portfolio-2-li">
+  <input type="checkbox" id="m-intermediate-csch06portfolio-2-check"/>
+  <label for="m-intermediate-csch06portfolio-2-check"><a href="/intermediate-cs/ch06/portfolio-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06portfolio-2"><span class="">Animation Portfolio II</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06project-li">
+  <input type="checkbox" id="m-intermediate-csch06project-check"/>
+  <label for="m-intermediate-csch06project-check"><a href="/intermediate-cs/ch06/project/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06project"><span class="">Animation Project</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-sig-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-sig-check"/>
+  <label for="m-intermediate-csch06bigbang-sig-check"><a href="/intermediate-cs/ch06/bigbang-sig/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-sig"><span class="">Info: Signature Story</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-check-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-check-check"/>
+  <label for="m-intermediate-csch06bigbang-check-check"><a href="/intermediate-cs/ch06/bigbang-check/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-check"><span class="">Info: Check-Expects</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-diagram-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-diagram-check"/>
+  <label for="m-intermediate-csch06bigbang-diagram-check"><a href="/intermediate-cs/ch06/bigbang-diagram/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-diagram"><span class="">big-bang diagram</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-00-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-00-check"/>
+  <label for="m-intermediate-csch06bigbang-00-check"><a href="/intermediate-cs/ch06/bigbang-00/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-00"><span class="">big-bang 00</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-01-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-01-check"/>
+  <label for="m-intermediate-csch06bigbang-01-check"><a href="/intermediate-cs/ch06/bigbang-01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-01"><span class="">big-bang 01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-02-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-02-check"/>
+  <label for="m-intermediate-csch06bigbang-02-check"><a href="/intermediate-cs/ch06/bigbang-02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-02"><span class="">big-bang 02</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-03-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-03-check"/>
+  <label for="m-intermediate-csch06bigbang-03-check"><a href="/intermediate-cs/ch06/bigbang-03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-03"><span class="">big-bang 03</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-04-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-04-check"/>
+  <label for="m-intermediate-csch06bigbang-04-check"><a href="/intermediate-cs/ch06/bigbang-04/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-04"><span class="">big-bang 04</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06bigbang-05-li">
+  <input type="checkbox" id="m-intermediate-csch06bigbang-05-check"/>
+  <label for="m-intermediate-csch06bigbang-05-check"><a href="/intermediate-cs/ch06/bigbang-05/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06bigbang-05"><span class="">big-bang 05</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06tiny-01-li">
+  <input type="checkbox" id="m-intermediate-csch06tiny-01-check"/>
+  <label for="m-intermediate-csch06tiny-01-check"><a href="/intermediate-cs/ch06/tiny-01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06tiny-01"><span class="">Tiny 01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch06daily-li">
+  <input type="checkbox" id="m-intermediate-csch06daily-check"/>
+  <label for="m-intermediate-csch06daily-check"><a href="/intermediate-cs/ch06/daily/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch06daily"><span class="">Daily Animations</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06daily2018-10-12-li">
+  <input type="checkbox" id="m-intermediate-csch06daily2018-10-12-check"/>
+  <label for="m-intermediate-csch06daily2018-10-12-check"><a href="/intermediate-cs/ch06/daily/2018-10-12/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06daily2018-10-12"><span class="">2018.10.12</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06daily2018-10-11-li">
+  <input type="checkbox" id="m-intermediate-csch06daily2018-10-11-check"/>
+  <label for="m-intermediate-csch06daily2018-10-11-check"><a href="/intermediate-cs/ch06/daily/2018-10-11/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06daily2018-10-11"><span class="">2018.10.11</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06daily2017-10-12-li">
+  <input type="checkbox" id="m-intermediate-csch06daily2017-10-12-check"/>
+  <label for="m-intermediate-csch06daily2017-10-12-check"><a href="/intermediate-cs/ch06/daily/2017-10-12/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06daily2017-10-12"><span class="">2017-10-12</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06daily2017-10-10-li">
+  <input type="checkbox" id="m-intermediate-csch06daily2017-10-10-check"/>
+  <label for="m-intermediate-csch06daily2017-10-10-check"><a href="/intermediate-cs/ch06/daily/2017-10-10/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06daily2017-10-10"><span class="">2017-10-10</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06dailyanimation-practice-li">
+  <input type="checkbox" id="m-intermediate-csch06dailyanimation-practice-check"/>
+  <label for="m-intermediate-csch06dailyanimation-practice-check"><a href="/intermediate-cs/ch06/daily/animation-practice/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06dailyanimation-practice"><span class="">Animation Practice</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch06resources-li">
+  <input type="checkbox" id="m-intermediate-csch06resources-check"/>
+  <label for="m-intermediate-csch06resources-check"><a href="/intermediate-cs/ch06/resources/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch06resources"><span class="">Resources</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch07-li">
+  <input type="checkbox" id="m-intermediate-csch07-check"/>
+  <label for="m-intermediate-csch07-check"><a href="/intermediate-cs/ch07/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch07"><span class="">7. Numbers</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07ch07-summary-li">
+  <input type="checkbox" id="m-intermediate-csch07ch07-summary-check"/>
+  <label for="m-intermediate-csch07ch07-summary-check"><a href="/intermediate-cs/ch07/ch07-summary/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07ch07-summary"><span class="">7. Summary</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07exercises-1-li">
+  <input type="checkbox" id="m-intermediate-csch07exercises-1-check"/>
+  <label for="m-intermediate-csch07exercises-1-check"><a href="/intermediate-cs/ch07/exercises-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07exercises-1"><span class="">7. Exercises 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07exercises-2-li">
+  <input type="checkbox" id="m-intermediate-csch07exercises-2-check"/>
+  <label for="m-intermediate-csch07exercises-2-check"><a href="/intermediate-cs/ch07/exercises-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07exercises-2"><span class="">7. Exercises 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07exercises-3-li">
+  <input type="checkbox" id="m-intermediate-csch07exercises-3-check"/>
+  <label for="m-intermediate-csch07exercises-3-check"><a href="/intermediate-cs/ch07/exercises-3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07exercises-3"><span class="">7. Exercises 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07exercises-4-li">
+  <input type="checkbox" id="m-intermediate-csch07exercises-4-check"/>
+  <label for="m-intermediate-csch07exercises-4-check"><a href="/intermediate-cs/ch07/exercises-4/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07exercises-4"><span class="">7. Exercises 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07exercises-5-li">
+  <input type="checkbox" id="m-intermediate-csch07exercises-5-check"/>
+  <label for="m-intermediate-csch07exercises-5-check"><a href="/intermediate-cs/ch07/exercises-5/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07exercises-5"><span class="">7. Exercises 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07exercises-6-li">
+  <input type="checkbox" id="m-intermediate-csch07exercises-6-check"/>
+  <label for="m-intermediate-csch07exercises-6-check"><a href="/intermediate-cs/ch07/exercises-6/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07exercises-6"><span class="">7. Exercises 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07review-1-li">
+  <input type="checkbox" id="m-intermediate-csch07review-1-check"/>
+  <label for="m-intermediate-csch07review-1-check"><a href="/intermediate-cs/ch07/review-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07review-1"><span class="">7. Review 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07review-2-li">
+  <input type="checkbox" id="m-intermediate-csch07review-2-check"/>
+  <label for="m-intermediate-csch07review-2-check"><a href="/intermediate-cs/ch07/review-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07review-2"><span class="">7. Review 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07ch07-quiz-a-li">
+  <input type="checkbox" id="m-intermediate-csch07ch07-quiz-a-check"/>
+  <label for="m-intermediate-csch07ch07-quiz-a-check"><a href="/intermediate-cs/ch07/ch07-quiz-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07ch07-quiz-a"><span class="">7. Numbers Quiz A</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07maxmin-li">
+  <input type="checkbox" id="m-intermediate-csch07maxmin-check"/>
+  <label for="m-intermediate-csch07maxmin-check"><a href="/intermediate-cs/ch07/maxmin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07maxmin"><span class="">Slides: Max and min</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07random-li">
+  <input type="checkbox" id="m-intermediate-csch07random-check"/>
+  <label for="m-intermediate-csch07random-check"><a href="/intermediate-cs/ch07/random/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07random"><span class="">Randomness</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch07worksheets-li">
+  <input type="checkbox" id="m-intermediate-csch07worksheets-check"/>
+  <label for="m-intermediate-csch07worksheets-check"><a href="/intermediate-cs/ch07/worksheets/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch07worksheets"><span class="">Worksheets</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07worksheetsch07ws01-li">
+  <input type="checkbox" id="m-intermediate-csch07worksheetsch07ws01-check"/>
+  <label for="m-intermediate-csch07worksheetsch07ws01-check"><a href="/intermediate-cs/ch07/worksheets/ch07ws01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07worksheetsch07ws01"><span class="">Ch07 WS 01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07worksheetsch07ws03-li">
+  <input type="checkbox" id="m-intermediate-csch07worksheetsch07ws03-check"/>
+  <label for="m-intermediate-csch07worksheetsch07ws03-check"><a href="/intermediate-cs/ch07/worksheets/ch07ws03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07worksheetsch07ws03"><span class="">Ch07 WS 03</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07worksheetsch07ws04-li">
+  <input type="checkbox" id="m-intermediate-csch07worksheetsch07ws04-check"/>
+  <label for="m-intermediate-csch07worksheetsch07ws04-check"><a href="/intermediate-cs/ch07/worksheets/ch07ws04/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07worksheetsch07ws04"><span class="">Ch07 WS 04</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch07resources-li">
+  <input type="checkbox" id="m-intermediate-csch07resources-check"/>
+  <label for="m-intermediate-csch07resources-check"><a href="/intermediate-cs/ch07/resources/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch07resources"><span class="">Resources</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch08-li">
+  <input type="checkbox" id="m-intermediate-csch08-check"/>
+  <label for="m-intermediate-csch08-check"><a href="/intermediate-cs/ch08/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch08"><span class="">8. Number Models</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08models-1-li">
+  <input type="checkbox" id="m-intermediate-csch08models-1-check"/>
+  <label for="m-intermediate-csch08models-1-check"><a href="/intermediate-cs/ch08/models-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08models-1"><span class="">8. Number Models 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-1-li">
+  <input type="checkbox" id="m-intermediate-csch08number-1-check"/>
+  <label for="m-intermediate-csch08number-1-check"><a href="/intermediate-cs/ch08/number-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-1"><span class="">Number Models 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-2-li">
+  <input type="checkbox" id="m-intermediate-csch08number-2-check"/>
+  <label for="m-intermediate-csch08number-2-check"><a href="/intermediate-cs/ch08/number-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-2"><span class="">Number Models 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-3-li">
+  <input type="checkbox" id="m-intermediate-csch08number-3-check"/>
+  <label for="m-intermediate-csch08number-3-check"><a href="/intermediate-cs/ch08/number-3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-3"><span class="">Number Models 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-4-li">
+  <input type="checkbox" id="m-intermediate-csch08number-4-check"/>
+  <label for="m-intermediate-csch08number-4-check"><a href="/intermediate-cs/ch08/number-4/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-4"><span class="">Number Models 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-5-li">
+  <input type="checkbox" id="m-intermediate-csch08number-5-check"/>
+  <label for="m-intermediate-csch08number-5-check"><a href="/intermediate-cs/ch08/number-5/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-5"><span class="">Number Models 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-review-li">
+  <input type="checkbox" id="m-intermediate-csch08number-review-check"/>
+  <label for="m-intermediate-csch08number-review-check"><a href="/intermediate-cs/ch08/number-review/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-review"><span class="">Number Model Review</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-review-2-li">
+  <input type="checkbox" id="m-intermediate-csch08number-review-2-check"/>
+  <label for="m-intermediate-csch08number-review-2-check"><a href="/intermediate-cs/ch08/number-review-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-review-2"><span class="">Number Model Review II</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-graph-zoom-li">
+  <input type="checkbox" id="m-intermediate-csch08number-graph-zoom-check"/>
+  <label for="m-intermediate-csch08number-graph-zoom-check"><a href="/intermediate-cs/ch08/number-graph-zoom/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-graph-zoom"><span class="">Number Graph Zoom</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-project-li">
+  <input type="checkbox" id="m-intermediate-csch08number-project-check"/>
+  <label for="m-intermediate-csch08number-project-check"><a href="/intermediate-cs/ch08/number-project/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-project"><span class="">8. Number Project</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-finale-li">
+  <input type="checkbox" id="m-intermediate-csch08number-finale-check"/>
+  <label for="m-intermediate-csch08number-finale-check"><a href="/intermediate-cs/ch08/number-finale/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-finale"><span class="">8. Number Finale</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-test-li">
+  <input type="checkbox" id="m-intermediate-csch08number-test-check"/>
+  <label for="m-intermediate-csch08number-test-check"><a href="/intermediate-cs/ch08/number-test/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-test"><span class="">8. Build It Test</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08test-corrections-li">
+  <input type="checkbox" id="m-intermediate-csch08test-corrections-check"/>
+  <label for="m-intermediate-csch08test-corrections-check"><a href="/intermediate-cs/ch08/test-corrections/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08test-corrections"><span class="">8. Test Corrections</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch08number-review-more-li">
+  <input type="checkbox" id="m-intermediate-csch08number-review-more-check"/>
+  <label for="m-intermediate-csch08number-review-more-check"><a href="/intermediate-cs/ch08/number-review-more/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch08number-review-more"><span class="">Number Review More</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch09-li">
+  <input type="checkbox" id="m-intermediate-csch09-check"/>
+  <label for="m-intermediate-csch09-check"><a href="/intermediate-cs/ch09/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch09"><span class="">9. Strings</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch09strings-1-li">
+  <input type="checkbox" id="m-intermediate-csch09strings-1-check"/>
+  <label for="m-intermediate-csch09strings-1-check"><a href="/intermediate-cs/ch09/strings-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch09strings-1"><span class="">Strings 1</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch13-li">
+  <input type="checkbox" id="m-intermediate-csch13-check"/>
+  <label for="m-intermediate-csch13-check"><a href="/intermediate-cs/ch13/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch13"><span class="">13. Booleans</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch13ch13-exb-li">
+  <input type="checkbox" id="m-intermediate-csch13ch13-exb-check"/>
+  <label for="m-intermediate-csch13ch13-exb-check"><a href="/intermediate-cs/ch13/ch13-exb/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch13ch13-exb"><span class="">13. Exercises B</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch13ch13-exc-li">
+  <input type="checkbox" id="m-intermediate-csch13ch13-exc-check"/>
+  <label for="m-intermediate-csch13ch13-exc-check"><a href="/intermediate-cs/ch13/ch13-exc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch13ch13-exc"><span class="">13. Exercises C</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch13ch13-intro-ex0-li">
+  <input type="checkbox" id="m-intermediate-csch13ch13-intro-ex0-check"/>
+  <label for="m-intermediate-csch13ch13-intro-ex0-check"><a href="/intermediate-cs/ch13/ch13-intro-ex0/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch13ch13-intro-ex0"><span class="">13. Intro Exercises 0</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch13ch13-intro-ex1-li">
+  <input type="checkbox" id="m-intermediate-csch13ch13-intro-ex1-check"/>
+  <label for="m-intermediate-csch13ch13-intro-ex1-check"><a href="/intermediate-cs/ch13/ch13-intro-ex1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch13ch13-intro-ex1"><span class="">13. Intro Exercises 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch13ch13-intro-ex2-li">
+  <input type="checkbox" id="m-intermediate-csch13ch13-intro-ex2-check"/>
+  <label for="m-intermediate-csch13ch13-intro-ex2-check"><a href="/intermediate-cs/ch13/ch13-intro-ex2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch13ch13-intro-ex2"><span class="">13. Intro Exercises 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch13ch13-intro-ex3-li">
+  <input type="checkbox" id="m-intermediate-csch13ch13-intro-ex3-check"/>
+  <label for="m-intermediate-csch13ch13-intro-ex3-check"><a href="/intermediate-cs/ch13/ch13-intro-ex3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch13ch13-intro-ex3"><span class="">13. Intro Exercises 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch13ch13-exa-li">
+  <input type="checkbox" id="m-intermediate-csch13ch13-exa-check"/>
+  <label for="m-intermediate-csch13ch13-exa-check"><a href="/intermediate-cs/ch13/ch13-exa/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch13ch13-exa"><span class="">Ch13 Exercises</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch14-li">
+  <input type="checkbox" id="m-intermediate-csch14-check"/>
+  <label for="m-intermediate-csch14-check"><a href="/intermediate-cs/ch14/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch14"><span class="">14. Booleans II</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch14ch14-essentials-li">
+  <input type="checkbox" id="m-intermediate-csch14ch14-essentials-check"/>
+  <label for="m-intermediate-csch14ch14-essentials-check"><a href="/intermediate-cs/ch14/ch14-essentials/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch14ch14-essentials"><span class="">14. Essentials</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-intermediate-csch15-li">
+  <input type="checkbox" id="m-intermediate-csch15-check" checked/>
+  <label for="m-intermediate-csch15-check"><a href="/intermediate-cs/ch15/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch15"><span class="">15. Conditionals</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-book-li">
+  <input type="checkbox" id="m-intermediate-csch1515-book-check"/>
+  <label for="m-intermediate-csch1515-book-check"><a href="/intermediate-cs/ch15/15-book/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-book"><span class="">15. Book</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-slides-li">
+  <input type="checkbox" id="m-intermediate-csch1515-slides-check"/>
+  <label for="m-intermediate-csch1515-slides-check"><a href="/intermediate-cs/ch15/15-slides/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-slides"><span class="">15. Slides</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-warmups-a-li">
+  <input type="checkbox" id="m-intermediate-csch1515-warmups-a-check"/>
+  <label for="m-intermediate-csch1515-warmups-a-check"><a href="/intermediate-cs/ch15/15-warmups-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-warmups-a"><span class="">15. Warmups A</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-cond-patterns-li">
+  <input type="checkbox" id="m-intermediate-csch1515-cond-patterns-check"/>
+  <label for="m-intermediate-csch1515-cond-patterns-check"><a href="/intermediate-cs/ch15/15-cond-patterns/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-cond-patterns"><span class="">15. Cond Patterns</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-challenge-li">
+  <input type="checkbox" id="m-intermediate-csch1515-challenge-check"/>
+  <label for="m-intermediate-csch1515-challenge-check"><a href="/intermediate-cs/ch15/15-challenge/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-challenge"><span class="">15. Another Challenge</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-graphing-review-li">
+  <input type="checkbox" id="m-intermediate-csch1515-graphing-review-check"/>
+  <label for="m-intermediate-csch1515-graphing-review-check"><a href="/intermediate-cs/ch15/15-graphing-review/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-graphing-review"><span class="">15. Graphing Review</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-heatmap-li">
+  <input type="checkbox" id="m-intermediate-csch1515-heatmap-check"/>
+  <label for="m-intermediate-csch1515-heatmap-check"><a href="/intermediate-cs/ch15/15-heatmap/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-heatmap"><span class="">15. Heatmap</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-heat-contour-li">
+  <input type="checkbox" id="m-intermediate-csch1515-heat-contour-check"/>
+  <label for="m-intermediate-csch1515-heat-contour-check"><a href="/intermediate-cs/ch15/15-heat-contour/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-heat-contour"><span class="">15. Heatmap with Contours</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-intermediate-csch1515-practice-all-li">
+  <input type="checkbox" id="m-intermediate-csch1515-practice-all-check" checked/>
+  <label for="m-intermediate-csch1515-practice-all-check"><a href="/intermediate-cs/ch15/15-practice-all/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-practice-all"><span class="td-sidebar-nav-active-item">15. Practice All</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1515-practice-quiz-li">
+  <input type="checkbox" id="m-intermediate-csch1515-practice-quiz-check"/>
+  <label for="m-intermediate-csch1515-practice-quiz-check"><a href="/intermediate-cs/ch15/15-practice-quiz/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1515-practice-quiz"><span class="">15. Practice Quiz</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch17-li">
+  <input type="checkbox" id="m-intermediate-csch17-check"/>
+  <label for="m-intermediate-csch17-check"><a href="/intermediate-cs/ch17/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch17"><span class="">17. Cond Animations</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1717c-li">
+  <input type="checkbox" id="m-intermediate-csch1717c-check"/>
+  <label for="m-intermediate-csch1717c-check"><a href="/intermediate-cs/ch17/17c/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1717c"><span class="">17.C</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1717d-li">
+  <input type="checkbox" id="m-intermediate-csch1717d-check"/>
+  <label for="m-intermediate-csch1717d-check"><a href="/intermediate-cs/ch17/17d/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1717d"><span class="">17.D</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch1717e-li">
+  <input type="checkbox" id="m-intermediate-csch1717e-check"/>
+  <label for="m-intermediate-csch1717e-check"><a href="/intermediate-cs/ch17/17e/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch1717e"><span class="">17.E</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch17jan-a-li">
+  <input type="checkbox" id="m-intermediate-csch17jan-a-check"/>
+  <label for="m-intermediate-csch17jan-a-check"><a href="/intermediate-cs/ch17/jan-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch17jan-a"><span class="">Jan A</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch17review-sem-1-restart-3-li">
+  <input type="checkbox" id="m-intermediate-csch17review-sem-1-restart-3-check"/>
+  <label for="m-intermediate-csch17review-sem-1-restart-3-check"><a href="/intermediate-cs/ch17/review-sem-1-restart-3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch17review-sem-1-restart-3"><span class="">17. Review Restart 3</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-cssem1review-li">
+  <input type="checkbox" id="m-intermediate-cssem1review-check"/>
+  <label for="m-intermediate-cssem1review-check"><a href="/intermediate-cs/sem1review/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-cssem1review"><span class="">Sem.I Review</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-1-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-1-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-1-check"><a href="/intermediate-cs/sem1review/sem-review-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-1"><span class="">I.1 Semester I Review 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-2-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-2-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-2-check"><a href="/intermediate-cs/sem1review/sem-review-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-2"><span class="">I.2 Semester I Review 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-3-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-3-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-3-check"><a href="/intermediate-cs/sem1review/sem-review-3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-3"><span class="">I.3 Semester I Review 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-4-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-4-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-4-check"><a href="/intermediate-cs/sem1review/sem-review-4/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-4"><span class="">I.4 Semester I Review 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-5-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-5-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-5-check"><a href="/intermediate-cs/sem1review/sem-review-5/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-5"><span class="">I.5 Semester I Review 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-6-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-6-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-6-check"><a href="/intermediate-cs/sem1review/sem-review-6/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-6"><span class="">I.6 Semester I Review 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-7-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-7-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-7-check"><a href="/intermediate-cs/sem1review/sem-review-7/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-7"><span class="">I.7 Semester I Review 7</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-8-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-8-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-8-check"><a href="/intermediate-cs/sem1review/sem-review-8/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-8"><span class="">I.8 Semester I Review 8</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-9-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-9-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-9-check"><a href="/intermediate-cs/sem1review/sem-review-9/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-9"><span class="">I.9 Semester I Review 9</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-e-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-e-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-e-check"><a href="/intermediate-cs/sem1review/sem-review-e/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-e"><span class="">I.E Semester Review E</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-f-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-f-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-f-check"><a href="/intermediate-cs/sem1review/sem-review-f/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-f"><span class="">I.F Semester Review F</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-g-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-g-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-g-check"><a href="/intermediate-cs/sem1review/sem-review-g/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-g"><span class="">I.G Semester Review G</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1review2020-sem1-review-notes-li">
+  <input type="checkbox" id="m-intermediate-cssem1review2020-sem1-review-notes-check"/>
+  <label for="m-intermediate-cssem1review2020-sem1-review-notes-check"><a href="/intermediate-cs/sem1review/2020-sem1-review-notes/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1review2020-sem1-review-notes"><span class="">Sem.I 2020 Review Notes</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem1final2021-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem1final2021-check"/>
+  <label for="m-intermediate-cssem1reviewsem1final2021-check"><a href="/intermediate-cs/sem1review/sem1final2021/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem1final2021"><span class="">Sem.I Final 2021</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem1reviewsem-review-topics-1-li">
+  <input type="checkbox" id="m-intermediate-cssem1reviewsem-review-topics-1-check"/>
+  <label for="m-intermediate-cssem1reviewsem-review-topics-1-check"><a href="/intermediate-cs/sem1review/sem-review-topics-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem1reviewsem-review-topics-1"><span class="">Semester Review Topics List</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch20-li">
+  <input type="checkbox" id="m-intermediate-csch20-check"/>
+  <label for="m-intermediate-csch20-check"><a href="/intermediate-cs/ch20/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch20"><span class="">20. Using Structures</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20posn-util-li">
+  <input type="checkbox" id="m-intermediate-csch20posn-util-check"/>
+  <label for="m-intermediate-csch20posn-util-check"><a href="/intermediate-cs/ch20/posn-util/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20posn-util"><span class="">20. Posn Util</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch2020-require-li">
+  <input type="checkbox" id="m-intermediate-csch2020-require-check"/>
+  <label for="m-intermediate-csch2020-require-check"><a href="/intermediate-cs/ch20/20-require/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch2020-require"><span class="">20. Libraries</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch2020-troubleshoot-li">
+  <input type="checkbox" id="m-intermediate-csch2020-troubleshoot-check"/>
+  <label for="m-intermediate-csch2020-troubleshoot-check"><a href="/intermediate-cs/ch20/20-troubleshoot/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch2020-troubleshoot"><span class="">20. Troubleshoot</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20posnmath-li">
+  <input type="checkbox" id="m-intermediate-csch20posnmath-check"/>
+  <label for="m-intermediate-csch20posnmath-check"><a href="/intermediate-cs/ch20/posnmath/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20posnmath"><span class="">20. Posn Math</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch2020-intro-ex-1-li">
+  <input type="checkbox" id="m-intermediate-csch2020-intro-ex-1-check"/>
+  <label for="m-intermediate-csch2020-intro-ex-1-check"><a href="/intermediate-cs/ch20/20-intro-ex-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch2020-intro-ex-1"><span class="">20. Posn Math Programming</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20click-circle-li">
+  <input type="checkbox" id="m-intermediate-csch20click-circle-check"/>
+  <label for="m-intermediate-csch20click-circle-check"><a href="/intermediate-cs/ch20/click-circle/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20click-circle"><span class="">20. Click Circle</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20click-circle-questions-li">
+  <input type="checkbox" id="m-intermediate-csch20click-circle-questions-check"/>
+  <label for="m-intermediate-csch20click-circle-questions-check"><a href="/intermediate-cs/ch20/click-circle-questions/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20click-circle-questions"><span class="">20. Click Circle Questions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20click-mega-li">
+  <input type="checkbox" id="m-intermediate-csch20click-mega-check"/>
+  <label for="m-intermediate-csch20click-mega-check"><a href="/intermediate-cs/ch20/click-mega/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20click-mega"><span class="">20. Click Mega</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20square-a-li">
+  <input type="checkbox" id="m-intermediate-csch20square-a-check"/>
+  <label for="m-intermediate-csch20square-a-check"><a href="/intermediate-cs/ch20/square-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20square-a"><span class="">20. Silly Square</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20tightrope-li">
+  <input type="checkbox" id="m-intermediate-csch20tightrope-check"/>
+  <label for="m-intermediate-csch20tightrope-check"><a href="/intermediate-cs/ch20/tightrope/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20tightrope"><span class="">20. Tightrope</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ellipse-li">
+  <input type="checkbox" id="m-intermediate-csch20ellipse-check"/>
+  <label for="m-intermediate-csch20ellipse-check"><a href="/intermediate-cs/ch20/ellipse/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ellipse"><span class="">20. Ellipse</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20click-rect-li">
+  <input type="checkbox" id="m-intermediate-csch20click-rect-check"/>
+  <label for="m-intermediate-csch20click-rect-check"><a href="/intermediate-cs/ch20/click-rect/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20click-rect"><span class="">20. Click Rectangle</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20chase-li">
+  <input type="checkbox" id="m-intermediate-csch20chase-check"/>
+  <label for="m-intermediate-csch20chase-check"><a href="/intermediate-cs/ch20/chase/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20chase"><span class="">20. Chase</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20map-image-li">
+  <input type="checkbox" id="m-intermediate-csch20map-image-check"/>
+  <label for="m-intermediate-csch20map-image-check"><a href="/intermediate-cs/ch20/map-image/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20map-image"><span class="">20. Map Image</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20color-enhancing-li">
+  <input type="checkbox" id="m-intermediate-csch20color-enhancing-check"/>
+  <label for="m-intermediate-csch20color-enhancing-check"><a href="/intermediate-cs/ch20/color-enhancing/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20color-enhancing"><span class="">20. Color Enhancing</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ch20-review-li">
+  <input type="checkbox" id="m-intermediate-csch20ch20-review-check"/>
+  <label for="m-intermediate-csch20ch20-review-check"><a href="/intermediate-cs/ch20/ch20-review/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ch20-review"><span class="">20. Review</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch20ball-driving-li">
+  <input type="checkbox" id="m-intermediate-csch20ball-driving-check"/>
+  <label for="m-intermediate-csch20ball-driving-check"><a href="/intermediate-cs/ch20/ball-driving/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch20ball-driving"><span class="">20. Ball Driving</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ball-drivingintro-li">
+  <input type="checkbox" id="m-intermediate-csch20ball-drivingintro-check"/>
+  <label for="m-intermediate-csch20ball-drivingintro-check"><a href="/intermediate-cs/ch20/ball-driving/intro/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ball-drivingintro"><span class="">1. Intro</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ball-drivingstarter-code-li">
+  <input type="checkbox" id="m-intermediate-csch20ball-drivingstarter-code-check"/>
+  <label for="m-intermediate-csch20ball-drivingstarter-code-check"><a href="/intermediate-cs/ch20/ball-driving/starter-code/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ball-drivingstarter-code"><span class="">2. Starter Code</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ball-drivingcontrols-li">
+  <input type="checkbox" id="m-intermediate-csch20ball-drivingcontrols-check"/>
+  <label for="m-intermediate-csch20ball-drivingcontrols-check"><a href="/intermediate-cs/ch20/ball-driving/controls/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ball-drivingcontrols"><span class="">3. Controls</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ball-drivingmotion-li">
+  <input type="checkbox" id="m-intermediate-csch20ball-drivingmotion-check"/>
+  <label for="m-intermediate-csch20ball-drivingmotion-check"><a href="/intermediate-cs/ch20/ball-driving/motion/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ball-drivingmotion"><span class="">4. Motion</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ball-drivingend-game-li">
+  <input type="checkbox" id="m-intermediate-csch20ball-drivingend-game-check"/>
+  <label for="m-intermediate-csch20ball-drivingend-game-check"><a href="/intermediate-cs/ch20/ball-driving/end-game/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ball-drivingend-game"><span class="">5. End Game</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ball-drivinganimation-li">
+  <input type="checkbox" id="m-intermediate-csch20ball-drivinganimation-check"/>
+  <label for="m-intermediate-csch20ball-drivinganimation-check"><a href="/intermediate-cs/ch20/ball-driving/animation/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ball-drivinganimation"><span class="">6. Animation</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ch20-quiz-c-li">
+  <input type="checkbox" id="m-intermediate-csch20ch20-quiz-c-check"/>
+  <label for="m-intermediate-csch20ch20-quiz-c-check"><a href="/intermediate-cs/ch20/ch20-quiz-c/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ch20-quiz-c"><span class="">20. Quiz C - Solar Jump</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ch20-quiz-d-li">
+  <input type="checkbox" id="m-intermediate-csch20ch20-quiz-d-check"/>
+  <label for="m-intermediate-csch20ch20-quiz-d-check"><a href="/intermediate-cs/ch20/ch20-quiz-d/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ch20-quiz-d"><span class="">20. Quiz D</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20ch20-wsn-inventory-li">
+  <input type="checkbox" id="m-intermediate-csch20ch20-wsn-inventory-check"/>
+  <label for="m-intermediate-csch20ch20-wsn-inventory-check"><a href="/intermediate-cs/ch20/ch20-wsn-inventory/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20ch20-wsn-inventory"><span class="">20.N Inventory</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20aimbooster-li">
+  <input type="checkbox" id="m-intermediate-csch20aimbooster-check"/>
+  <label for="m-intermediate-csch20aimbooster-check"><a href="/intermediate-cs/ch20/aimbooster/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20aimbooster"><span class="">Advanced: Aimbooster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch20trollquiz-li">
+  <input type="checkbox" id="m-intermediate-csch20trollquiz-check"/>
+  <label for="m-intermediate-csch20trollquiz-check"><a href="/intermediate-cs/ch20/trollquiz/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch20trollquiz"><span class="">Troll Quiz Practice</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch2020-intro-ex-120-intro-checkexpect-li">
+  <input type="checkbox" id="m-intermediate-csch2020-intro-ex-120-intro-checkexpect-check"/>
+  <label for="m-intermediate-csch2020-intro-ex-120-intro-checkexpect-check"><a href="/intermediate-cs/ch20/20-intro-ex-1/20-intro-checkexpect/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch2020-intro-ex-120-intro-checkexpect"><span class=""></span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch21-li">
+  <input type="checkbox" id="m-intermediate-csch21-check"/>
+  <label for="m-intermediate-csch21-check"><a href="/intermediate-cs/ch21/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch21"><span class="">21. Structures</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch2121-ws-a-li">
+  <input type="checkbox" id="m-intermediate-csch2121-ws-a-check"/>
+  <label for="m-intermediate-csch2121-ws-a-check"><a href="/intermediate-cs/ch21/21-ws-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch2121-ws-a"><span class="">21. Worksheet A</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch2121-ws-b-li">
+  <input type="checkbox" id="m-intermediate-csch2121-ws-b-check"/>
+  <label for="m-intermediate-csch2121-ws-b-check"><a href="/intermediate-cs/ch21/21-ws-b/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch2121-ws-b"><span class="">21. Worksheet B</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch2121-ws-c-li">
+  <input type="checkbox" id="m-intermediate-csch2121-ws-c-check"/>
+  <label for="m-intermediate-csch2121-ws-c-check"><a href="/intermediate-cs/ch21/21-ws-c/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch2121-ws-c"><span class="">21. Worksheet C</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch2121-star-circle-li">
+  <input type="checkbox" id="m-intermediate-csch2121-star-circle-check"/>
+  <label for="m-intermediate-csch2121-star-circle-check"><a href="/intermediate-cs/ch21/21-star-circle/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch2121-star-circle"><span class="">21. Star-Circle</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch21pv-intro-li">
+  <input type="checkbox" id="m-intermediate-csch21pv-intro-check"/>
+  <label for="m-intermediate-csch21pv-intro-check"><a href="/intermediate-cs/ch21/pv-intro/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch21pv-intro"><span class="">21. PV Intro</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch21pv-tick-handler-li">
+  <input type="checkbox" id="m-intermediate-csch21pv-tick-handler-check"/>
+  <label for="m-intermediate-csch21pv-tick-handler-check"><a href="/intermediate-cs/ch21/pv-tick-handler/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch21pv-tick-handler"><span class="">21. Two Actions, One Tick</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch21pv-tick-handlermath-soln-1-li">
+  <input type="checkbox" id="m-intermediate-csch21pv-tick-handlermath-soln-1-check"/>
+  <label for="m-intermediate-csch21pv-tick-handlermath-soln-1-check"><a href="/intermediate-cs/ch21/pv-tick-handler/math-soln-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch21pv-tick-handlermath-soln-1"><span class="">Math Soln 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch21pv-tick-handlermath-soln-2-li">
+  <input type="checkbox" id="m-intermediate-csch21pv-tick-handlermath-soln-2-check"/>
+  <label for="m-intermediate-csch21pv-tick-handlermath-soln-2-check"><a href="/intermediate-cs/ch21/pv-tick-handler/math-soln-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch21pv-tick-handlermath-soln-2"><span class="">Math Soln 2</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch21moving-ball-li">
+  <input type="checkbox" id="m-intermediate-csch21moving-ball-check"/>
+  <label for="m-intermediate-csch21moving-ball-check"><a href="/intermediate-cs/ch21/moving-ball/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch21moving-ball"><span class="">Moving Ball</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch21speed-typer-li">
+  <input type="checkbox" id="m-intermediate-csch21speed-typer-check"/>
+  <label for="m-intermediate-csch21speed-typer-check"><a href="/intermediate-cs/ch21/speed-typer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch21speed-typer"><span class="">Speed Typer</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch21agar-io-li">
+  <input type="checkbox" id="m-intermediate-csch21agar-io-check"/>
+  <label for="m-intermediate-csch21agar-io-check"><a href="/intermediate-cs/ch21/agar-io/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch21agar-io"><span class="">Agar.io</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch22a-li">
+  <input type="checkbox" id="m-intermediate-csch22a-check"/>
+  <label for="m-intermediate-csch22a-check"><a href="/intermediate-cs/ch22a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch22a"><span class="">22a. Recursion</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a10-learnrec-li">
+  <input type="checkbox" id="m-intermediate-csch22a10-learnrec-check"/>
+  <label for="m-intermediate-csch22a10-learnrec-check"><a href="/intermediate-cs/ch22a/10-learnrec/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a10-learnrec"><span class="">22a. Learn Recursion</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a30-fibonacci-li">
+  <input type="checkbox" id="m-intermediate-csch22a30-fibonacci-check"/>
+  <label for="m-intermediate-csch22a30-fibonacci-check"><a href="/intermediate-cs/ch22a/30-fibonacci/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a30-fibonacci"><span class="">22a. Fibonacci</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a35-num-digits-li">
+  <input type="checkbox" id="m-intermediate-csch22a35-num-digits-check"/>
+  <label for="m-intermediate-csch22a35-num-digits-check"><a href="/intermediate-cs/ch22a/35-num-digits/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a35-num-digits"><span class="">22a. Digits</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a40-sum-digits-li">
+  <input type="checkbox" id="m-intermediate-csch22a40-sum-digits-check"/>
+  <label for="m-intermediate-csch22a40-sum-digits-check"><a href="/intermediate-cs/ch22a/40-sum-digits/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a40-sum-digits"><span class="">22a. Sum Digits</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a42-digits-ii-li">
+  <input type="checkbox" id="m-intermediate-csch22a42-digits-ii-check"/>
+  <label for="m-intermediate-csch22a42-digits-ii-check"><a href="/intermediate-cs/ch22a/42-digits-ii/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a42-digits-ii"><span class="">22a. Digits II</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a44-digits-iii-li">
+  <input type="checkbox" id="m-intermediate-csch22a44-digits-iii-check"/>
+  <label for="m-intermediate-csch22a44-digits-iii-check"><a href="/intermediate-cs/ch22a/44-digits-iii/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a44-digits-iii"><span class="">22a. Digits III</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a48-digits-v-li">
+  <input type="checkbox" id="m-intermediate-csch22a48-digits-v-check"/>
+  <label for="m-intermediate-csch22a48-digits-v-check"><a href="/intermediate-cs/ch22a/48-digits-v/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a48-digits-v"><span class="">22a. Digits V</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a50-fibsum-li">
+  <input type="checkbox" id="m-intermediate-csch22a50-fibsum-check"/>
+  <label for="m-intermediate-csch22a50-fibsum-check"><a href="/intermediate-cs/ch22a/50-fibsum/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a50-fibsum"><span class="">22a. Fibsum</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a60-more-rec-li">
+  <input type="checkbox" id="m-intermediate-csch22a60-more-rec-check"/>
+  <label for="m-intermediate-csch22a60-more-rec-check"><a href="/intermediate-cs/ch22a/60-more-rec/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a60-more-rec"><span class="">22a. More Recursion</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a61-harmonic-li">
+  <input type="checkbox" id="m-intermediate-csch22a61-harmonic-check"/>
+  <label for="m-intermediate-csch22a61-harmonic-check"><a href="/intermediate-cs/ch22a/61-harmonic/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a61-harmonic"><span class="">22a. Harmonic</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a62-rec-plus-li">
+  <input type="checkbox" id="m-intermediate-csch22a62-rec-plus-check"/>
+  <label for="m-intermediate-csch22a62-rec-plus-check"><a href="/intermediate-cs/ch22a/62-rec-plus/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a62-rec-plus"><span class="">22a. Practice&#43;&#43;</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a63-ssa-li">
+  <input type="checkbox" id="m-intermediate-csch22a63-ssa-check"/>
+  <label for="m-intermediate-csch22a63-ssa-check"><a href="/intermediate-cs/ch22a/63-ssa/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a63-ssa"><span class="">22a. ss3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a70-rec-helpers-li">
+  <input type="checkbox" id="m-intermediate-csch22a70-rec-helpers-check"/>
+  <label for="m-intermediate-csch22a70-rec-helpers-check"><a href="/intermediate-cs/ch22a/70-rec-helpers/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a70-rec-helpers"><span class="">22a. Recursive Helpers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a80-rec-practice-q-li">
+  <input type="checkbox" id="m-intermediate-csch22a80-rec-practice-q-check"/>
+  <label for="m-intermediate-csch22a80-rec-practice-q-check"><a href="/intermediate-cs/ch22a/80-rec-practice-q/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a80-rec-practice-q"><span class="">22a. Recursion Quiz Practice</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a81-rec-quiz-li">
+  <input type="checkbox" id="m-intermediate-csch22a81-rec-quiz-check"/>
+  <label for="m-intermediate-csch22a81-rec-quiz-check"><a href="/intermediate-cs/ch22a/81-rec-quiz/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a81-rec-quiz"><span class="">22a. Recursion Quiz 2018</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a82-quiz-li">
+  <input type="checkbox" id="m-intermediate-csch22a82-quiz-check"/>
+  <label for="m-intermediate-csch22a82-quiz-check"><a href="/intermediate-cs/ch22a/82-quiz/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a82-quiz"><span class="">22a. Recursion Practice I 2019</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22aroygbiv-code-li">
+  <input type="checkbox" id="m-intermediate-csch22aroygbiv-code-check"/>
+  <label for="m-intermediate-csch22aroygbiv-code-check"><a href="/intermediate-cs/ch22a/roygbiv-code/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22aroygbiv-code"><span class="">Roygbiv Code</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a84-strings-li">
+  <input type="checkbox" id="m-intermediate-csch22a84-strings-check"/>
+  <label for="m-intermediate-csch22a84-strings-check"><a href="/intermediate-cs/ch22a/84-strings/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a84-strings"><span class="">22a. Strings</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a90-helpers-li">
+  <input type="checkbox" id="m-intermediate-csch22a90-helpers-check"/>
+  <label for="m-intermediate-csch22a90-helpers-check"><a href="/intermediate-cs/ch22a/90-helpers/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a90-helpers"><span class="">22a. Helpers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a91-count-divisors-li">
+  <input type="checkbox" id="m-intermediate-csch22a91-count-divisors-check"/>
+  <label for="m-intermediate-csch22a91-count-divisors-check"><a href="/intermediate-cs/ch22a/91-count-divisors/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a91-count-divisors"><span class="">22a. Helpers: Count Divisors</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a92-helpers-2-li">
+  <input type="checkbox" id="m-intermediate-csch22a92-helpers-2-check"/>
+  <label for="m-intermediate-csch22a92-helpers-2-check"><a href="/intermediate-cs/ch22a/92-helpers-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a92-helpers-2"><span class="">22a. Recursion Practice 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a93-self-quiz-li">
+  <input type="checkbox" id="m-intermediate-csch22a93-self-quiz-check"/>
+  <label for="m-intermediate-csch22a93-self-quiz-check"><a href="/intermediate-cs/ch22a/93-self-quiz/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a93-self-quiz"><span class="">22a. Recursion Self Quiz</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a94-rec-practice-4-li">
+  <input type="checkbox" id="m-intermediate-csch22a94-rec-practice-4-check"/>
+  <label for="m-intermediate-csch22a94-rec-practice-4-check"><a href="/intermediate-cs/ch22a/94-rec-practice-4/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a94-rec-practice-4"><span class="">22a. Recursion Practice 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a95-0-quiz-li">
+  <input type="checkbox" id="m-intermediate-csch22a95-0-quiz-check"/>
+  <label for="m-intermediate-csch22a95-0-quiz-check"><a href="/intermediate-cs/ch22a/95-0-quiz/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a95-0-quiz"><span class="">22a. Memorization Quiz 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a95-1-quiz-li">
+  <input type="checkbox" id="m-intermediate-csch22a95-1-quiz-check"/>
+  <label for="m-intermediate-csch22a95-1-quiz-check"><a href="/intermediate-cs/ch22a/95-1-quiz/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a95-1-quiz"><span class="">22a. Mini-Quiz</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a95-rec-quiz-2-li">
+  <input type="checkbox" id="m-intermediate-csch22a95-rec-quiz-2-check"/>
+  <label for="m-intermediate-csch22a95-rec-quiz-2-check"><a href="/intermediate-cs/ch22a/95-rec-quiz-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a95-rec-quiz-2"><span class="">22a. Recursion Quiz 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a96-rec-practice-5-li">
+  <input type="checkbox" id="m-intermediate-csch22a96-rec-practice-5-check"/>
+  <label for="m-intermediate-csch22a96-rec-practice-5-check"><a href="/intermediate-cs/ch22a/96-rec-practice-5/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a96-rec-practice-5"><span class="">22a. Recursion Practice 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a97-rec-practice-6-li">
+  <input type="checkbox" id="m-intermediate-csch22a97-rec-practice-6-check"/>
+  <label for="m-intermediate-csch22a97-rec-practice-6-check"><a href="/intermediate-cs/ch22a/97-rec-practice-6/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a97-rec-practice-6"><span class="">22a. Recursion Practice 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a98-quiz-3-hard-li">
+  <input type="checkbox" id="m-intermediate-csch22a98-quiz-3-hard-check"/>
+  <label for="m-intermediate-csch22a98-quiz-3-hard-check"><a href="/intermediate-cs/ch22a/98-quiz-3-hard/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a98-quiz-3-hard"><span class="">Quiz 3 (Hard)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a99-quiz-4-medium-li">
+  <input type="checkbox" id="m-intermediate-csch22a99-quiz-4-medium-check"/>
+  <label for="m-intermediate-csch22a99-quiz-4-medium-check"><a href="/intermediate-cs/ch22a/99-quiz-4-medium/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a99-quiz-4-medium"><span class="">Quiz 4 (Medium)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a110-febg-review-li">
+  <input type="checkbox" id="m-intermediate-csch22a110-febg-review-check"/>
+  <label for="m-intermediate-csch22a110-febg-review-check"><a href="/intermediate-cs/ch22a/110-febg-review/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a110-febg-review"><span class="">22a. Feb.G Review</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch22a199-hangman-li">
+  <input type="checkbox" id="m-intermediate-csch22a199-hangman-check"/>
+  <label for="m-intermediate-csch22a199-hangman-check"><a href="/intermediate-cs/ch22a/199-hangman/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch22a199-hangman"><span class="">22a. Hangman Project</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a199-hangman99a-hangman-outline-li">
+  <input type="checkbox" id="m-intermediate-csch22a199-hangman99a-hangman-outline-check"/>
+  <label for="m-intermediate-csch22a199-hangman99a-hangman-outline-check"><a href="/intermediate-cs/ch22a/199-hangman/99a-hangman-outline/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a199-hangman99a-hangman-outline"><span class="">22a. Hangman Outline</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a199-hangman99b-hangman-images-li">
+  <input type="checkbox" id="m-intermediate-csch22a199-hangman99b-hangman-images-check"/>
+  <label for="m-intermediate-csch22a199-hangman99b-hangman-images-check"><a href="/intermediate-cs/ch22a/199-hangman/99b-hangman-images/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a199-hangman99b-hangman-images"><span class="">22a. Hangman Images</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a199-hangman99c-hangman-keyhandler-li">
+  <input type="checkbox" id="m-intermediate-csch22a199-hangman99c-hangman-keyhandler-check"/>
+  <label for="m-intermediate-csch22a199-hangman99c-hangman-keyhandler-check"><a href="/intermediate-cs/ch22a/199-hangman/99c-hangman-keyhandler/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a199-hangman99c-hangman-keyhandler"><span class="">22a. Hangman Key Handler</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a199-hangman99d-hangman-drawhandler-li">
+  <input type="checkbox" id="m-intermediate-csch22a199-hangman99d-hangman-drawhandler-check"/>
+  <label for="m-intermediate-csch22a199-hangman99d-hangman-drawhandler-check"><a href="/intermediate-cs/ch22a/199-hangman/99d-hangman-drawhandler/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a199-hangman99d-hangman-drawhandler"><span class="">22a. Hangman DH Warmup</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22a199-hangman99e-hangman-drawhandler-2-li">
+  <input type="checkbox" id="m-intermediate-csch22a199-hangman99e-hangman-drawhandler-2-check"/>
+  <label for="m-intermediate-csch22a199-hangman99e-hangman-drawhandler-2-check"><a href="/intermediate-cs/ch22a/199-hangman/99e-hangman-drawhandler-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22a199-hangman99e-hangman-drawhandler-2"><span class="">22a. Hangman Draw Handler</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch22b-li">
+  <input type="checkbox" id="m-intermediate-csch22b-check"/>
+  <label for="m-intermediate-csch22b-check"><a href="/intermediate-cs/ch22b/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch22b"><span class="">22b. Lists</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-intro-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-intro-check"/>
+  <label for="m-intermediate-csch22blist-intro-check"><a href="/intermediate-cs/ch22b/list-intro/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-intro"><span class="">22. List Intro</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-exercises-1-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-exercises-1-check"/>
+  <label for="m-intermediate-csch22blist-exercises-1-check"><a href="/intermediate-cs/ch22b/list-exercises-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-exercises-1"><span class="">22b. List Exercises 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-exercises-15-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-exercises-15-check"/>
+  <label for="m-intermediate-csch22blist-exercises-15-check"><a href="/intermediate-cs/ch22b/list-exercises-1.5/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-exercises-15"><span class="">22b. List Exercises 1.5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-exercises-2-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-exercises-2-check"/>
+  <label for="m-intermediate-csch22blist-exercises-2-check"><a href="/intermediate-cs/ch22b/list-exercises-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-exercises-2"><span class="">22b. List Exercises 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22bbubble-wrap-li">
+  <input type="checkbox" id="m-intermediate-csch22bbubble-wrap-check"/>
+  <label for="m-intermediate-csch22bbubble-wrap-check"><a href="/intermediate-cs/ch22b/bubble-wrap/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22bbubble-wrap"><span class="">22b. Bubble Wrap</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22bbubble-review-li">
+  <input type="checkbox" id="m-intermediate-csch22bbubble-review-check"/>
+  <label for="m-intermediate-csch22bbubble-review-check"><a href="/intermediate-cs/ch22b/bubble-review/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22bbubble-review"><span class="">Bubble Review</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-exercises-3-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-exercises-3-check"/>
+  <label for="m-intermediate-csch22blist-exercises-3-check"><a href="/intermediate-cs/ch22b/list-exercises-3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-exercises-3"><span class="">22b. List Exercises 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-exercises-4-q-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-exercises-4-q-check"/>
+  <label for="m-intermediate-csch22blist-exercises-4-q-check"><a href="/intermediate-cs/ch22b/list-exercises-4-q/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-exercises-4-q"><span class="">22b. List Exercises 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-exercises-6-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-exercises-6-check"/>
+  <label for="m-intermediate-csch22blist-exercises-6-check"><a href="/intermediate-cs/ch22b/list-exercises-6/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-exercises-6"><span class="">22b. List Exercises 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-exercises-7-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-exercises-7-check"/>
+  <label for="m-intermediate-csch22blist-exercises-7-check"><a href="/intermediate-cs/ch22b/list-exercises-7/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-exercises-7"><span class="">22b. List Exercises 7</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22blist-resources-li">
+  <input type="checkbox" id="m-intermediate-csch22blist-resources-check"/>
+  <label for="m-intermediate-csch22blist-resources-check"><a href="/intermediate-cs/ch22b/list-resources/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22blist-resources"><span class="">22. Additional Resources</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csch22bparcels-li">
+  <input type="checkbox" id="m-intermediate-csch22bparcels-check"/>
+  <label for="m-intermediate-csch22bparcels-check"><a href="/intermediate-cs/ch22b/parcels/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csch22bparcels"><span class="">Parcels</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22bparcelsgrid-li">
+  <input type="checkbox" id="m-intermediate-csch22bparcelsgrid-check"/>
+  <label for="m-intermediate-csch22bparcelsgrid-check"><a href="/intermediate-cs/ch22b/parcels/grid/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22bparcelsgrid"><span class="">Grid</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22bparcelsdistances-li">
+  <input type="checkbox" id="m-intermediate-csch22bparcelsdistances-check"/>
+  <label for="m-intermediate-csch22bparcelsdistances-check"><a href="/intermediate-cs/ch22b/parcels/distances/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22bparcelsdistances"><span class="">Distances</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22bparcelsparcels-colors-li">
+  <input type="checkbox" id="m-intermediate-csch22bparcelsparcels-colors-check"/>
+  <label for="m-intermediate-csch22bparcelsparcels-colors-check"><a href="/intermediate-cs/ch22b/parcels/parcels-colors/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22bparcelsparcels-colors"><span class="">Coloring</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22bparcelsparcels-animation-li">
+  <input type="checkbox" id="m-intermediate-csch22bparcelsparcels-animation-check"/>
+  <label for="m-intermediate-csch22bparcelsparcels-animation-check"><a href="/intermediate-cs/ch22b/parcels/parcels-animation/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22bparcelsparcels-animation"><span class="">Animation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csch22bparcelsvideos-li">
+  <input type="checkbox" id="m-intermediate-csch22bparcelsvideos-check"/>
+  <label for="m-intermediate-csch22bparcelsvideos-check"><a href="/intermediate-cs/ch22b/parcels/videos/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csch22bparcelsvideos"><span class="">Parcels Videos</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csuniverse-li">
+  <input type="checkbox" id="m-intermediate-csuniverse-check"/>
+  <label for="m-intermediate-csuniverse-check"><a href="/intermediate-cs/universe/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csuniverse"><span class="">24. Universe</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-overview-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-overview-check"/>
+  <label for="m-intermediate-csuniverseu-overview-check"><a href="/intermediate-cs/universe/u-overview/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-overview"><span class="">Universe Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csuniverseu-walkthrough-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough-check"><a href="/intermediate-cs/universe/u-walkthrough/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csuniverseu-walkthrough"><span class="">U Walkthrough</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough00-description-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough00-description-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough00-description-check"><a href="/intermediate-cs/universe/u-walkthrough/00-description/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough00-description"><span class="">Description</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough01-model-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough01-model-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough01-model-check"><a href="/intermediate-cs/universe/u-walkthrough/01-model/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough01-model"><span class="">01 Model</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough02-message-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough02-message-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough02-message-check"><a href="/intermediate-cs/universe/u-walkthrough/02-message/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough02-message"><span class="">02 Message</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough03-checkpt-1-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough03-checkpt-1-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough03-checkpt-1-check"><a href="/intermediate-cs/universe/u-walkthrough/03-checkpt-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough03-checkpt-1"><span class="">03 Checkpoint</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough04-drawh-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough04-drawh-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough04-drawh-check"><a href="/intermediate-cs/universe/u-walkthrough/04-drawh/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough04-drawh"><span class="">04 Draw-H</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough05-receive-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough05-receive-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough05-receive-check"><a href="/intermediate-cs/universe/u-walkthrough/05-receive/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough05-receive"><span class="">05 Receive H</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough06-key-h-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough06-key-h-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough06-key-h-check"><a href="/intermediate-cs/universe/u-walkthrough/06-key-h/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough06-key-h"><span class="">06 Key H</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough07-big-bang-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough07-big-bang-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough07-big-bang-check"><a href="/intermediate-cs/universe/u-walkthrough/07-big-bang/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough07-big-bang"><span class="">07 Big Bang</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough08-server-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough08-server-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough08-server-check"><a href="/intermediate-cs/universe/u-walkthrough/08-server/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough08-server"><span class="">08 Server</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough09-enhance-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough09-enhance-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough09-enhance-check"><a href="/intermediate-cs/universe/u-walkthrough/09-enhance/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough09-enhance"><span class="">09 Enhance</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-walkthrough10-questions-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-walkthrough10-questions-check"/>
+  <label for="m-intermediate-csuniverseu-walkthrough10-questions-check"><a href="/intermediate-cs/universe/u-walkthrough/10-questions/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-walkthrough10-questions"><span class="">10 Questions I</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseday-night-li">
+  <input type="checkbox" id="m-intermediate-csuniverseday-night-check"/>
+  <label for="m-intermediate-csuniverseday-night-check"><a href="/intermediate-cs/universe/day-night/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseday-night"><span class="">Day and Night</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniversemoney-li">
+  <input type="checkbox" id="m-intermediate-csuniversemoney-check"/>
+  <label for="m-intermediate-csuniversemoney-check"><a href="/intermediate-cs/universe/money/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniversemoney"><span class="">Money on the Table</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-mini-proj-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-mini-proj-check"/>
+  <label for="m-intermediate-csuniverseu-mini-proj-check"><a href="/intermediate-cs/universe/u-mini-proj/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-mini-proj"><span class="">Universe Mini Projects</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-color-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-color-check"/>
+  <label for="m-intermediate-csuniverseu-color-check"><a href="/intermediate-cs/universe/u-color/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-color"><span class="">Universe Color</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-take-turns-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-take-turns-check"/>
+  <label for="m-intermediate-csuniverseu-take-turns-check"><a href="/intermediate-cs/universe/u-take-turns/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-take-turns"><span class="">Universe Taking Turns</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-quiz-4-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-quiz-4-check"/>
+  <label for="m-intermediate-csuniverseu-quiz-4-check"><a href="/intermediate-cs/universe/u-quiz-4/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-quiz-4"><span class="">Universe Quiz 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-slapjack-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-slapjack-check"/>
+  <label for="m-intermediate-csuniverseu-slapjack-check"><a href="/intermediate-cs/universe/u-slapjack/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-slapjack"><span class="">Universe Slapjack</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniversechat-app-li">
+  <input type="checkbox" id="m-intermediate-csuniversechat-app-check"/>
+  <label for="m-intermediate-csuniversechat-app-check"><a href="/intermediate-cs/universe/chat-app/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniversechat-app"><span class="">Chat App</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-paint-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-paint-check"/>
+  <label for="m-intermediate-csuniverseu-paint-check"><a href="/intermediate-cs/universe/u-paint/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-paint"><span class="">Universe Paint</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniversegray-rect-li">
+  <input type="checkbox" id="m-intermediate-csuniversegray-rect-check"/>
+  <label for="m-intermediate-csuniversegray-rect-check"><a href="/intermediate-cs/universe/gray-rect/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniversegray-rect"><span class="">Gray Rectangles</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-resources-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-resources-check"/>
+  <label for="m-intermediate-csuniverseu-resources-check"><a href="/intermediate-cs/universe/u-resources/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-resources"><span class="">Universe Resources</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-mistakes-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-mistakes-check"/>
+  <label for="m-intermediate-csuniverseu-mistakes-check"><a href="/intermediate-cs/universe/u-mistakes/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-mistakes"><span class="">Universe Mistakes</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csuniverseu-ws-01-li">
+  <input type="checkbox" id="m-intermediate-csuniverseu-ws-01-check"/>
+  <label for="m-intermediate-csuniverseu-ws-01-check"><a href="/intermediate-cs/universe/u-ws-01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csuniverseu-ws-01"><span class="">U WS 01</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csmisc-li">
+  <input type="checkbox" id="m-intermediate-csmisc-check"/>
+  <label for="m-intermediate-csmisc-check"><a href="/intermediate-cs/misc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csmisc"><span class="">Misc</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csmiscmisc-01-li">
+  <input type="checkbox" id="m-intermediate-csmiscmisc-01-check"/>
+  <label for="m-intermediate-csmiscmisc-01-check"><a href="/intermediate-cs/misc/misc-01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csmiscmisc-01"><span class="">Misc 01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csmiscmisc-02-li">
+  <input type="checkbox" id="m-intermediate-csmiscmisc-02-check"/>
+  <label for="m-intermediate-csmiscmisc-02-check"><a href="/intermediate-cs/misc/misc-02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csmiscmisc-02"><span class="">Misc 02</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csmiscmisc-03-li">
+  <input type="checkbox" id="m-intermediate-csmiscmisc-03-check"/>
+  <label for="m-intermediate-csmiscmisc-03-check"><a href="/intermediate-cs/misc/misc-03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csmiscmisc-03"><span class="">Misc 03</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csprojects-li">
+  <input type="checkbox" id="m-intermediate-csprojects-check"/>
+  <label for="m-intermediate-csprojects-check"><a href="/intermediate-cs/projects/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csprojects"><span class="">Projects</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csprojectsduck-shoot-li">
+  <input type="checkbox" id="m-intermediate-csprojectsduck-shoot-check"/>
+  <label for="m-intermediate-csprojectsduck-shoot-check"><a href="/intermediate-cs/projects/duck-shoot/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csprojectsduck-shoot"><span class="">Duck Shoot</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsduck-shoot05-description-li">
+  <input type="checkbox" id="m-intermediate-csprojectsduck-shoot05-description-check"/>
+  <label for="m-intermediate-csprojectsduck-shoot05-description-check"><a href="/intermediate-cs/projects/duck-shoot/05-description/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsduck-shoot05-description"><span class="">Description</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsduck-shoot10-model-li">
+  <input type="checkbox" id="m-intermediate-csprojectsduck-shoot10-model-check"/>
+  <label for="m-intermediate-csprojectsduck-shoot10-model-check"><a href="/intermediate-cs/projects/duck-shoot/10-model/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsduck-shoot10-model"><span class="">Model and Draw</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csprojectsbattleship-li">
+  <input type="checkbox" id="m-intermediate-csprojectsbattleship-check"/>
+  <label for="m-intermediate-csprojectsbattleship-check"><a href="/intermediate-cs/projects/battleship/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csprojectsbattleship"><span class="">Battleship</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsbattleshipmodel-li">
+  <input type="checkbox" id="m-intermediate-csprojectsbattleshipmodel-check"/>
+  <label for="m-intermediate-csprojectsbattleshipmodel-check"><a href="/intermediate-cs/projects/battleship/model/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsbattleshipmodel"><span class="">Battleship Model</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsbattleshipexamples-li">
+  <input type="checkbox" id="m-intermediate-csprojectsbattleshipexamples-check"/>
+  <label for="m-intermediate-csprojectsbattleshipexamples-check"><a href="/intermediate-cs/projects/battleship/examples/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsbattleshipexamples"><span class="">Battleship Examples</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsbattleshipoutline-li">
+  <input type="checkbox" id="m-intermediate-csprojectsbattleshipoutline-check"/>
+  <label for="m-intermediate-csprojectsbattleshipoutline-check"><a href="/intermediate-cs/projects/battleship/outline/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsbattleshipoutline"><span class="">Battleship Outline</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsbattleshipchecks-li">
+  <input type="checkbox" id="m-intermediate-csprojectsbattleshipchecks-check"/>
+  <label for="m-intermediate-csprojectsbattleshipchecks-check"><a href="/intermediate-cs/projects/battleship/checks/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsbattleshipchecks"><span class="">Battleship Checks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsbattleshipdraw-li">
+  <input type="checkbox" id="m-intermediate-csprojectsbattleshipdraw-check"/>
+  <label for="m-intermediate-csprojectsbattleshipdraw-check"><a href="/intermediate-cs/projects/battleship/draw/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsbattleshipdraw"><span class="">Battleship Action</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsbattleshipfinal-li">
+  <input type="checkbox" id="m-intermediate-csprojectsbattleshipfinal-check"/>
+  <label for="m-intermediate-csprojectsbattleshipfinal-check"><a href="/intermediate-cs/projects/battleship/final/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsbattleshipfinal"><span class="">Battleship Complete</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csprojectssnake-li">
+  <input type="checkbox" id="m-intermediate-csprojectssnake-check"/>
+  <label for="m-intermediate-csprojectssnake-check"><a href="/intermediate-cs/projects/snake/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csprojectssnake"><span class="">Snake</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectssnake10-snake-intro-li">
+  <input type="checkbox" id="m-intermediate-csprojectssnake10-snake-intro-check"/>
+  <label for="m-intermediate-csprojectssnake10-snake-intro-check"><a href="/intermediate-cs/projects/snake/10-snake-intro/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectssnake10-snake-intro"><span class="">Snake Intro</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectssnake100-snake-li">
+  <input type="checkbox" id="m-intermediate-csprojectssnake100-snake-check"/>
+  <label for="m-intermediate-csprojectssnake100-snake-check"><a href="/intermediate-cs/projects/snake/100-snake/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectssnake100-snake"><span class="">Snake Functions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectssnake110-multiplayer-li">
+  <input type="checkbox" id="m-intermediate-csprojectssnake110-multiplayer-check"/>
+  <label for="m-intermediate-csprojectssnake110-multiplayer-check"><a href="/intermediate-cs/projects/snake/110-multiplayer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectssnake110-multiplayer"><span class="">Snake Multiplayer</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectssnake120-ai-li">
+  <input type="checkbox" id="m-intermediate-csprojectssnake120-ai-check"/>
+  <label for="m-intermediate-csprojectssnake120-ai-check"><a href="/intermediate-cs/projects/snake/120-ai/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectssnake120-ai"><span class="">Snake AI</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csprojectsreversi-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi-check"/>
+  <label for="m-intermediate-csprojectsreversi-check"><a href="/intermediate-cs/projects/reversi/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csprojectsreversi"><span class="">Reversi</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi100-overview-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi100-overview-check"/>
+  <label for="m-intermediate-csprojectsreversi100-overview-check"><a href="/intermediate-cs/projects/reversi/100-overview/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi100-overview"><span class="">Reversi Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi105-structs-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi105-structs-check"/>
+  <label for="m-intermediate-csprojectsreversi105-structs-check"><a href="/intermediate-cs/projects/reversi/105-structs/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi105-structs"><span class="">Reversi Structs</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi110-stage1-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi110-stage1-check"/>
+  <label for="m-intermediate-csprojectsreversi110-stage1-check"><a href="/intermediate-cs/projects/reversi/110-stage1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi110-stage1"><span class="">Reversi Placement</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi120-indicator-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi120-indicator-check"/>
+  <label for="m-intermediate-csprojectsreversi120-indicator-check"><a href="/intermediate-cs/projects/reversi/120-indicator/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi120-indicator"><span class="">Reversi Indicator</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi130-ray-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi130-ray-check"/>
+  <label for="m-intermediate-csprojectsreversi130-ray-check"><a href="/intermediate-cs/projects/reversi/130-ray/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi130-ray"><span class="">Reversi Ray</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi135-board-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi135-board-check"/>
+  <label for="m-intermediate-csprojectsreversi135-board-check"><a href="/intermediate-cs/projects/reversi/135-board/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi135-board"><span class="">Reversi Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi137-plan-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi137-plan-check"/>
+  <label for="m-intermediate-csprojectsreversi137-plan-check"><a href="/intermediate-cs/projects/reversi/137-plan/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi137-plan"><span class="">Reversi Flip Plan</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi140-flips-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi140-flips-check"/>
+  <label for="m-intermediate-csprojectsreversi140-flips-check"><a href="/intermediate-cs/projects/reversi/140-flips/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi140-flips"><span class="">Reversi Count Flips</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprojectsreversi150-stack-li">
+  <input type="checkbox" id="m-intermediate-csprojectsreversi150-stack-check"/>
+  <label for="m-intermediate-csprojectsreversi150-stack-check"><a href="/intermediate-cs/projects/reversi/150-stack/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprojectsreversi150-stack"><span class="">Reversi Stack</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-cssem2review-li">
+  <input type="checkbox" id="m-intermediate-cssem2review-check"/>
+  <label for="m-intermediate-cssem2review-check"><a href="/intermediate-cs/sem2review/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-cssem2review"><span class="">Sem.II Review</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2reviewsem2final-li">
+  <input type="checkbox" id="m-intermediate-cssem2reviewsem2final-check"/>
+  <label for="m-intermediate-cssem2reviewsem2final-check"><a href="/intermediate-cs/sem2review/sem2final/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2reviewsem2final"><span class="">2020 Sem.II Final</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2022-01-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2022-01-check"/>
+  <label for="m-intermediate-cssem2review2022-01-check"><a href="/intermediate-cs/sem2review/2022-01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2022-01"><span class="">2022 Review 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2022-02-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2022-02-check"/>
+  <label for="m-intermediate-cssem2review2022-02-check"><a href="/intermediate-cs/sem2review/2022-02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2022-02"><span class="">2022 Review 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2022-03-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2022-03-check"/>
+  <label for="m-intermediate-cssem2review2022-03-check"><a href="/intermediate-cs/sem2review/2022-03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2022-03"><span class="">2022 Review 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2022-04-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2022-04-check"/>
+  <label for="m-intermediate-cssem2review2022-04-check"><a href="/intermediate-cs/sem2review/2022-04/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2022-04"><span class="">2022 Review 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2022-05-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2022-05-check"/>
+  <label for="m-intermediate-cssem2review2022-05-check"><a href="/intermediate-cs/sem2review/2022-05/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2022-05"><span class="">2022 Review 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2023-01-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2023-01-check"/>
+  <label for="m-intermediate-cssem2review2023-01-check"><a href="/intermediate-cs/sem2review/2023-01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2023-01"><span class="">2023 Review 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2023-02-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2023-02-check"/>
+  <label for="m-intermediate-cssem2review2023-02-check"><a href="/intermediate-cs/sem2review/2023-02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2023-02"><span class="">2023 Review 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2023-03-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2023-03-check"/>
+  <label for="m-intermediate-cssem2review2023-03-check"><a href="/intermediate-cs/sem2review/2023-03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2023-03"><span class="">2023 Review 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cssem2review2024-02-li">
+  <input type="checkbox" id="m-intermediate-cssem2review2024-02-check"/>
+  <label for="m-intermediate-cssem2review2024-02-check"><a href="/intermediate-cs/sem2review/2024-02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cssem2review2024-02"><span class="">2024 Review 2</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-cstyped-li">
+  <input type="checkbox" id="m-intermediate-cstyped-check"/>
+  <label for="m-intermediate-cstyped-check"><a href="/intermediate-cs/typed/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-cstyped"><span class="">Typed Racket</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedtyped-intro-li">
+  <input type="checkbox" id="m-intermediate-cstypedtyped-intro-check"/>
+  <label for="m-intermediate-cstypedtyped-intro-check"><a href="/intermediate-cs/typed/typed-intro/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedtyped-intro"><span class="">Typed Intro</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedtyped-variables-li">
+  <input type="checkbox" id="m-intermediate-cstypedtyped-variables-check"/>
+  <label for="m-intermediate-cstypedtyped-variables-check"><a href="/intermediate-cs/typed/typed-variables/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedtyped-variables"><span class="">Typed Variables and Functions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedtyped-structures-li">
+  <input type="checkbox" id="m-intermediate-cstypedtyped-structures-check"/>
+  <label for="m-intermediate-cstypedtyped-structures-check"><a href="/intermediate-cs/typed/typed-structures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedtyped-structures"><span class="">Typed Structures</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedtyped-bigbang-li">
+  <input type="checkbox" id="m-intermediate-cstypedtyped-bigbang-check"/>
+  <label for="m-intermediate-cstypedtyped-bigbang-check"><a href="/intermediate-cs/typed/typed-bigbang/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedtyped-bigbang"><span class="">Typed Big Bang</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedtyped-ex1-li">
+  <input type="checkbox" id="m-intermediate-cstypedtyped-ex1-check"/>
+  <label for="m-intermediate-cstypedtyped-ex1-check"><a href="/intermediate-cs/typed/typed-ex1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedtyped-ex1"><span class="">Typed Exercises 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedtyped-ex2-li">
+  <input type="checkbox" id="m-intermediate-cstypedtyped-ex2-check"/>
+  <label for="m-intermediate-cstypedtyped-ex2-check"><a href="/intermediate-cs/typed/typed-ex2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedtyped-ex2"><span class="">Typed Exercises 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedtyped-ex3-li">
+  <input type="checkbox" id="m-intermediate-cstypedtyped-ex3-check"/>
+  <label for="m-intermediate-cstypedtyped-ex3-check"><a href="/intermediate-cs/typed/typed-ex3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedtyped-ex3"><span class="">Typed Exercises 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedbumper-cars-li">
+  <input type="checkbox" id="m-intermediate-cstypedbumper-cars-check"/>
+  <label for="m-intermediate-cstypedbumper-cars-check"><a href="/intermediate-cs/typed/bumper-cars/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedbumper-cars"><span class="">Bumper Cars</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedbumper-two-player-li">
+  <input type="checkbox" id="m-intermediate-cstypedbumper-two-player-check"/>
+  <label for="m-intermediate-cstypedbumper-two-player-check"><a href="/intermediate-cs/typed/bumper-two-player/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedbumper-two-player"><span class="">Bumper Two Player</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-cstypedcheckers-li">
+  <input type="checkbox" id="m-intermediate-cstypedcheckers-check"/>
+  <label for="m-intermediate-cstypedcheckers-check"><a href="/intermediate-cs/typed/checkers/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-cstypedcheckers"><span class="">Checkers</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedcheckersoutline-li">
+  <input type="checkbox" id="m-intermediate-cstypedcheckersoutline-check"/>
+  <label for="m-intermediate-cstypedcheckersoutline-check"><a href="/intermediate-cs/typed/checkers/outline/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedcheckersoutline"><span class="">Checkers Outline</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedcheckersmodel-li">
+  <input type="checkbox" id="m-intermediate-cstypedcheckersmodel-check"/>
+  <label for="m-intermediate-cstypedcheckersmodel-check"><a href="/intermediate-cs/typed/checkers/model/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedcheckersmodel"><span class="">Checkers Model</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cstypedcheckerslegal-moves-li">
+  <input type="checkbox" id="m-intermediate-cstypedcheckerslegal-moves-check"/>
+  <label for="m-intermediate-cstypedcheckerslegal-moves-check"><a href="/intermediate-cs/typed/checkers/legal-moves/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cstypedcheckerslegal-moves"><span class="">Checkers Legal Moves</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csdocs-li">
+  <input type="checkbox" id="m-intermediate-csdocs-check"/>
+  <label for="m-intermediate-csdocs-check"><a href="/intermediate-cs/docs/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csdocs"><span class="">Resources</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csdocsturn-in-work-li">
+  <input type="checkbox" id="m-intermediate-csdocsturn-in-work-check"/>
+  <label for="m-intermediate-csdocsturn-in-work-check"><a href="/intermediate-cs/docs/turn-in-work/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csdocsturn-in-work"><span class="">Turn in Work</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csdocswhy-racket-li">
+  <input type="checkbox" id="m-intermediate-csdocswhy-racket-check"/>
+  <label for="m-intermediate-csdocswhy-racket-check"><a href="/intermediate-cs/docs/why-racket/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csdocswhy-racket"><span class="">Why Racket?</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csdocse-courses-li">
+  <input type="checkbox" id="m-intermediate-csdocse-courses-check"/>
+  <label for="m-intermediate-csdocse-courses-check"><a href="/intermediate-cs/docs/e-courses/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csdocse-courses"><span class="">Online Resources</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csdocsics-wescheme-note-li">
+  <input type="checkbox" id="m-intermediate-csdocsics-wescheme-note-check"/>
+  <label for="m-intermediate-csdocsics-wescheme-note-check"><a href="/intermediate-cs/docs/ics-wescheme-note/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csdocsics-wescheme-note"><span class="">WeScheme</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csdocswescheme-ch1-li">
+  <input type="checkbox" id="m-intermediate-csdocswescheme-ch1-check"/>
+  <label for="m-intermediate-csdocswescheme-ch1-check"><a href="/intermediate-cs/docs/wescheme-ch1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csdocswescheme-ch1"><span class=""></span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csdocswescheme-ch3-li">
+  <input type="checkbox" id="m-intermediate-csdocswescheme-ch3-check"/>
+  <label for="m-intermediate-csdocswescheme-ch3-check"><a href="/intermediate-cs/docs/wescheme-ch3/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csdocswescheme-ch3"><span class=""></span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csdocswescheme-ch7-li">
+  <input type="checkbox" id="m-intermediate-csdocswescheme-ch7-check"/>
+  <label for="m-intermediate-csdocswescheme-ch7-check"><a href="/intermediate-cs/docs/wescheme-ch7/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csdocswescheme-ch7"><span class=""></span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-cspro-li">
+  <input type="checkbox" id="m-intermediate-cspro-check"/>
+  <label for="m-intermediate-cspro-check"><a href="/intermediate-cs/pro/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-cspro"><span class="">Pro Features</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cspropro-string-li">
+  <input type="checkbox" id="m-intermediate-cspropro-string-check"/>
+  <label for="m-intermediate-cspropro-string-check"><a href="/intermediate-cs/pro/pro-string/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cspropro-string"><span class="">Strings for Experts</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprobuild-image-li">
+  <input type="checkbox" id="m-intermediate-csprobuild-image-check"/>
+  <label for="m-intermediate-csprobuild-image-check"><a href="/intermediate-cs/pro/build-image/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprobuild-image"><span class="">Build Image</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprostruct-li">
+  <input type="checkbox" id="m-intermediate-csprostruct-check"/>
+  <label for="m-intermediate-csprostruct-check"><a href="/intermediate-cs/pro/struct/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprostruct"><span class="">Advanced Structures</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprostruct-advanced-li">
+  <input type="checkbox" id="m-intermediate-csprostruct-advanced-check"/>
+  <label for="m-intermediate-csprostruct-advanced-check"><a href="/intermediate-cs/pro/struct-advanced/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprostruct-advanced"><span class="">Very Advanced Structures</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cspromatch-li">
+  <input type="checkbox" id="m-intermediate-cspromatch-check"/>
+  <label for="m-intermediate-cspromatch-check"><a href="/intermediate-cs/pro/match/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cspromatch"><span class="">Match</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csprofor-li">
+  <input type="checkbox" id="m-intermediate-csprofor-check"/>
+  <label for="m-intermediate-csprofor-check"><a href="/intermediate-cs/pro/for/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csprofor"><span class="">For</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csproforfor-05-li">
+  <input type="checkbox" id="m-intermediate-csproforfor-05-check"/>
+  <label for="m-intermediate-csproforfor-05-check"><a href="/intermediate-cs/pro/for/for-0.5/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csproforfor-05"><span class="">For 0.5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csproforfor-15-li">
+  <input type="checkbox" id="m-intermediate-csproforfor-15-check"/>
+  <label for="m-intermediate-csproforfor-15-check"><a href="/intermediate-cs/pro/for/for-1.5/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csproforfor-15"><span class="">For 1.5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csproforfor-14-li">
+  <input type="checkbox" id="m-intermediate-csproforfor-14-check"/>
+  <label for="m-intermediate-csproforfor-14-check"><a href="/intermediate-cs/pro/for/for-1.4/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csproforfor-14"><span class="">For 1.4</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csprotopics-li">
+  <input type="checkbox" id="m-intermediate-csprotopics-check"/>
+  <label for="m-intermediate-csprotopics-check"><a href="/intermediate-cs/pro/topics/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csprotopics"><span class="">Topics to Study</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-intermediate-csintensive-li">
+  <input type="checkbox" id="m-intermediate-csintensive-check"/>
+  <label for="m-intermediate-csintensive-check"><a href="/intermediate-cs/intensive/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-intermediate-csintensive"><span class="">Intensive</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csintensivestruct-a-li">
+  <input type="checkbox" id="m-intermediate-csintensivestruct-a-check"/>
+  <label for="m-intermediate-csintensivestruct-a-check"><a href="/intermediate-cs/intensive/struct-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csintensivestruct-a"><span class="">Struct A</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csintensivestruct-b-li">
+  <input type="checkbox" id="m-intermediate-csintensivestruct-b-check"/>
+  <label for="m-intermediate-csintensivestruct-b-check"><a href="/intermediate-cs/intensive/struct-b/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csintensivestruct-b"><span class="">Struct B</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csintensiverecursion-a-li">
+  <input type="checkbox" id="m-intermediate-csintensiverecursion-a-check"/>
+  <label for="m-intermediate-csintensiverecursion-a-check"><a href="/intermediate-cs/intensive/recursion-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csintensiverecursion-a"><span class="">Recursion A</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-csintensiverecursion-b-li">
+  <input type="checkbox" id="m-intermediate-csintensiverecursion-b-check"/>
+  <label for="m-intermediate-csintensiverecursion-b-check"><a href="/intermediate-cs/intensive/recursion-b/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-csintensiverecursion-b"><span class="">Recursion B</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-intermediate-cse-courses-li">
+  <input type="checkbox" id="m-intermediate-cse-courses-check"/>
+  <label for="m-intermediate-cse-courses-check"><a href="/intermediate-cs/e-courses/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-intermediate-cse-courses"><span class="">Online Help</span></a></label>
+  
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/maueroats/teaching--2025-2026/tree/main/www/content/intermediate-cs/ch15/15-practice-all.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/edit/main/www/content/intermediate-cs/ch15/15-practice-all.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/new/main/www/content/intermediate-cs/ch15?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/issues/new?title=15.%20Practice%20All" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  
+</div>
+
+            
+            
+	
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/intermediate-cs/">IntermediateCS</a></li>
+  <li class="breadcrumb-item">
+    <a href="/intermediate-cs/ch15/">15. Conditionals</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    15. Practice All</li>
+  </ol>
+</nav>
+<div class="td-content">
+	<h1>15. Practice All</h1>
+	
+	<header class="article-meta">
+		
+  </header>
+	<p>Do all of this work in a single Racket file. You <strong>need to turn this
+assignment in</strong> on classroom. You may attach your solution file or
+copy and paste the code as a <em>private</em> comment and mark the assignment
+complete.</p>
+<p>Read Section 15.6 (Unnecessary conditionals) to review how to
+simplify. (PDF page 230ff.)</p>
+<p>Note to book readers: I disagree with the author about section 15.7
+(nested conditionals) so I suggest not reading it. If you need to put
+conditionals inside of conditionals, make a helper function.</p>
+<ol>
+<li>Simplify:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">mess-1</span> <span style="color:#000">in-bed?</span> <span style="color:#000">alarm-time</span> <span style="color:#000">clock-time</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">boolean=?</span> <span style="color:#000">in-bed?</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">&lt;</span> <span style="color:#000">clock-time</span> <span style="color:#000">alarm-time</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;sleep&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;wake up&#34;</span><span style="color:#000;font-weight:bold">])]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">boolean=?</span> <span style="color:#000">in-bed?</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#4e9a06">&#34;wake up&#34;</span><span style="color:#000;font-weight:bold">]))</span><span style="color:#a40000">
+</span></span></span></code></pre></div><ol start="2">
+<li>Simplify:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">ice-danger?</span> <span style="color:#000">temp</span> <span style="color:#000">precipitation?</span> <span style="color:#000">salt?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">boolean=?</span> <span style="color:#204a87">true</span> <span style="color:#000">precipitation?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">boolean=?</span> <span style="color:#204a87;font-weight:bold">false</span> <span style="color:#000">salt?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">not</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">&gt;=</span> <span style="color:#000">temp</span> <span style="color:#0000cf;font-weight:bold">32</span><span style="color:#000;font-weight:bold">))))</span><span style="color:#a40000">
+</span></span></span></code></pre></div><ol start="3">
+<li>
+<p>Book problem 15.5.1, page 218 (pdf page 229): <code>carpet-price</code>.</p>
+</li>
+<li>
+<p>Book problem 15.5.2, page 218 (pdf page 229):
+<code>digital-thermometer</code>.</p>
+</li>
+<li>
+<p>Book problem 15.5.4 (<code>who-won</code>) and 15.5.5 (<code>4-votes-&gt;winner</code>),
+page 219 (pdf page 230).</p>
+</li>
+<li>
+<p>There are three circles of radius 150 drawn on a 500x500
+background. The centers are red (250,325), green (175,175), and
+blue (325,175). Make the area where circles overlap have all of the
+colors from the circles, so where red and green overlap the color
+is (make-color 255 255 0).</p>
+ <figure><img src="/intermediate-cs/ch15/15-practice-all/three-circ.png" width="200">
+ </figure>
+</li>
+</ol>
+
+	<div class="td-page-meta__lastmod">
+  Last modified August 18, 2023: <a data-proofer-ignore href="https://github.com/maueroats/teaching--2025-2026/commit/7352e874ce3f4f06ad847de97e1dbbf6523866ae">2022-2023 End State (7352e87)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Racket Docs" aria-label="Racket Docs">
+    <a target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Picturing Programs" aria-label="Picturing Programs">
+    <a target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Learn You a Haskell" aria-label="Learn You a Haskell">
+    <a target="_blank" rel="noopener" href="https://learnyouahaskell.github.io/" aria-label="Learn You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2026
+    <span class="td-footer__authors">A. Mauer-Oats</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.2c871db57a5e84fa41577f98690c48ddeb23f4de52c6f0ebe510761045285cd3.js" integrity="sha256-LIcdtXpehPpBV3&#43;YaQxI3esj9N5SxvDr5RB2EEUoXNM=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

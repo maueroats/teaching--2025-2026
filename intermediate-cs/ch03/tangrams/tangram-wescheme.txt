@@ -1,0 +1,152 @@
+;; Tangram pieces are in variables named A, B, C, D, E, F, G
+
+;;;; WeScheme Starter Code: Chapters 1 and 3. No book images.
+
+;; Chapter 1 Functions: rotate-cw rotate-ccw rotate-180
+;; This section defines simple functions used in Chapter 1
+;; rotate-cw
+;; rotate-ccw
+;; rotate-180
+
+(define (rotate-cw x)
+  (rotate -90 x))
+(define (rotate-ccw x)
+  (rotate 90 x))
+(define (rotate-180 x)
+  (rotate 180 x))
+
+;; Chapter 3 Functions for WeScheme
+
+;; Chapter 3: crop-left crop-right crop-top crop-bottom
+(define (crop-left img x)
+  (crop x 0 (- (image-width img) x) (image-height img) img))
+(define (crop-right img x)
+  (crop 0 0 (- (image-width img) x) (image-height img) img))
+(define (crop-top img y)
+  (crop 0 y (image-width img) (- (image-height img) y) img))
+(define (crop-bottom img y)
+  (crop 0 0 (image-width img) (- (image-height img) y) img))
+
+;; Chapter 3: colorize
+
+(define (colorize the-image-color)
+  (if (color? the-image-color)
+      the-image-color
+      (name->color the-image-color)))
+(define (real->int x)
+  (inexact->exact (round x)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(define (b a) (real->int (* 1/4 a (sqrt 2))))
+(define (c a) (real->int (* 1/2 a (sqrt 2))))
+(define (d a) (real->int (/ a 2)))
+(define (k a) (real->int (/ a 4)))
+
+(define (b-diagonal a) (d a))
+(define (d-diagonal a) (k a))
+(define (a-height a) (b a))
+(define (a-diagonal a) (a-height a))
+
+;; Which letters represent which shapes?
+(define (letter img str)
+   (overlay (text str 60 "purple")
+            img))
+
+
+;; set width for the side of the whole assembled square
+(define w 430)
+;"A"
+(define AA (rotate 45 (right-triangle (d w) (d w) "solid" (make-color #xd4 #x0c #x00))))
+ 
+;"B"
+(define BB (right-triangle (c w) (c w) "solid" (make-color #x00 #x64 #x00)))
+
+;"C"
+(define CC (rotate 90 (right-triangle (c w) (c w) "solid" (make-color #xff #x45 #x00))))
+
+;"D"
+(define DD (rotate -90 (right-triangle (b w) (b w) "solid" (make-color #xb2 #x22 #x22))))
+;"E"
+
+(define EEpart (right-triangle (k w) (k w) "solid" "blue"))
+(define EEppart (rotate 90 EEpart))
+(define EEps (square (k w) "solid" "blue"))
+(define EEpg 
+  (beside EEppart EEps (rotate 180 EEppart)))
+(define EE (rotate 90 EEpg))
+
+;"F"
+(define FF (square (b w) "solid" (make-color #xff #xff #x00)))
+
+;"G"
+(define GG (rotate 90 (right-triangle (b w) (b w) "solid" (make-color 0 0 #x8b))))
+
+
+
+(display "")
+(display "Each variable AA through GG holds one of the shapes.")
+(display "")
+
+#|
+;; Uncomment this if your monitor is skinny
+(above
+ (letter AA "A")
+ (letter BB "B")
+ (letter CC "C")
+ (letter DD "D")
+ (letter EE "E")
+ (letter FF "F")
+ (letter GG "G"))
+
+|#
+
+
+;; use this if your monitor is wide
+(above/align "left"
+             (beside
+              (letter AA "A")
+              (letter BB "B")
+              (letter CC "C"))
+             (beside
+              (letter DD "D")
+              (letter EE "E")
+              (letter FF "F")
+              (letter GG "G")))
+
+(define A AA)
+(define B BB)
+(define C CC)
+(define D DD)
+(define E EE)
+(define F FF)
+(define G GG)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; YOUR TANGRAM STARTS BELOW ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

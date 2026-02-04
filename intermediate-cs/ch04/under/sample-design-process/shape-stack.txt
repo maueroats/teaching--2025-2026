@@ -1,0 +1,63 @@
+(require picturing-programs)
+
+;;;;; Problem 1: shape-stack
+
+#| Recipe Part 1a: a purpose statement
+   Shape-stack is a function that produces an image of a triangle stacked on top of circle, stacked on top of a square.  Shape-stack places each shape inside of
+shape it is stacked on top of so that everything fits within the square at the base.  The function takes in 4 inputs; 3 for the color of each shape, and 1 for
+the size of the shapes.  The function works by using overlay to place the shapes on top of each other, and scale each image to appropriately fit
+within the image it is stacked on.|#
+
+#| Recipe Part 1b: Signature (instead of number could also have integer or int)
+
+shape-stack: number(sizing of the shapes) string(triangle color) string(circle color) string(squarecolor) --> image (shapes stacked) |#
+
+
+#| Recipe part 2: examples of function.  Show that you can output the function result for a static example. |#
+
+(overlay (scale 1.5 (triangle 10 "solid" "red"))
+         (overlay (circle 10 "solid" "green")
+                  (scale 2 (square 10 "solid" "blue"))))  ;;. result
+
+
+
+(overlay (scale 1.5 (triangle 20 "solid" "purple"))
+         (overlay (circle 20 "solid" "yellow")
+                  (scale 2 (square 20 "solid" "brown"))))  ;; . result
+
+
+#| Recipe part 3: Skeleton (function header) |#
+
+;; (define (shape-stack size colorTri colorCirc colorSqu))  ---- You don't have to do this as a separate comment, just do this before you write the body
+
+
+#| Recipe part 4: add an inventory for what you can work with.  Textbook places this after the function header - I think that's ugly.
+
+   size  number 10
+   colorTri string "red"
+   colorCirc string "blue"
+   colorSqu string "green"|#
+
+(define (shape-stack size colorTri colorCirc colorSqu)
+  (overlay (scale 1.5 (triangle size "solid" colorTri))    ;;;; Recipe part 5: Add the body or actual code to your function
+           (overlay (circle size "solid" colorCirc)
+                    (scale 2 (square size "solid" colorSqu)))))
+
+#| Recipe part 6: Test your program on the examples you chose in part 2 |#
+
+(check-expect (shape-stack 10 "red" "green" "blue")
+              (overlay (scale 1.5 (triangle 10 "solid" "red"))
+                       (overlay (circle 10 "solid" "green")
+                                (scale 2 (square 10 "solid" "blue")))))
+
+(check-expect (shape-stack 20 "purple" "yellow" "brown")
+              (overlay (scale 1.5 (triangle 20 "solid" "purple"))
+                       (overlay (circle 20 "solid" "yellow")
+                                (scale 2 (square 20 "solid" "brown")))))
+
+
+#| Recipe part 7: Use your program to solve other problems (we're not really here yet)
+
+Now that we have shape-stack, we could make a function called collage.  Collage puts a bunch of different shape-stacks in a beside/above display of art.
+ By using shape-stack as part of another function, we can further test it to see if it works.  If you DON'T test shape-stack before starting collage,
+and collage does not work as you expect, you will spend more time than necessary debugging.|#
