@@ -1,0 +1,63 @@
+class Main {
+    function void main () {
+        var MyString x;
+        var MyString y;
+        var int k;
+        
+        let y = MyString.fromString("Wicked");
+        do y.appendChar(46);
+        do Output.printString(y.toString());
+        do Output.println();
+        let x = MyString.new(128);
+
+        do Output.printString("_A_");
+        do Output.println();
+
+        do x.appendChar(48);
+        do x.appendChar(49);
+        do x.appendChar(50);
+        do x.appendChar(51);
+        do x.appendChar(52);
+        do x.appendChar(53);
+
+        do Output.printString(x.toString());
+        do Output.println();
+
+        do x.eraseLastChar();
+        do Output.printString(x.toString());
+        do Output.println();
+
+        do Output.printString("Length: ");
+        do Output.printInt(x.length());
+        do Output.println();
+
+        let k = x.intValue(); // 01234;
+        do Output.printString("Value of 01234: ");
+        do Output.printInt(k);
+        do Output.println();
+
+        let x = MyString.new(6);
+        do x.appendChar(45);
+        do x.appendChar(51);
+        do x.appendChar(50);
+        do x.appendChar(49);
+        do x.appendChar(54);
+
+        let k = x.intValue(); // -3216
+        do Output.printString("Value of -3216: ");
+        do Output.printInt(k);
+        do Output.println();
+
+        do x.setInt(5678);
+        do Output.printString("5678=");
+        do Output.printString(x.toString());
+        do Output.println();
+        
+        do x.setInt(-19283);
+        do Output.printString("-19283=");
+        do Output.printString(x.toString());
+        do Output.println();
+        
+        return;
+    }
+}

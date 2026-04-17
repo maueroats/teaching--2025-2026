@@ -1,0 +1,62 @@
+;; 1
+
+"1. msd"
+
+(define (msd n)
+  (if (< n 10)
+      n
+      (msd (quotient n 10))))
+
+(check-expect (msd 529) 5)
+(check-expect (msd 7392) 7)
+
+"2. sator"
+
+(define (keep? n)
+  (or (= 7 (msd n))
+      (= 7 (remainder n 10))
+      (= 0 (remainder n 10))))
+
+(define (sator xs)
+  (cond [(empty? xs)
+         xs]
+        [(keep? (first xs))
+         (list* (first xs)
+                (sator (rest xs)))]))
+
+(check-expect (sator (list 71 2 35 100 97))
+              (list 71 100 97))
+
+"3. pf"
+(define (pf lop)
+  (cond [(empty? lop)
+         (make-posn -1 -1)]
+        [(= (posn-y (first lop))
+            (sqr (posn-x (first lop))))
+         (pf (rest lop))]
+        [else
+         (first lop)]))
+
+
+"4. trace"
+#|
+(km 13 (list 17 33 4 20))
+(empty? as) #false
+(< b 10) #false
+(= 3 (remainder...)) #false
+(km 18 (list 33 4 20))
+(empty? as) #false
+(< b 10) #false
+(= 3 (remainder...)) #true
+(+ 18 4)
+22
+|#
+
+
+(define (tb? x y r p)
+  (or (<= (abs (+ -20 (posn-x p) (- x))) r)
+      (<= (abs (+ +20 (posn-x p) (- x))) r)))
+
+
+(check-expect (tb? 70 50 11 (make-posn 100 140)) true)
+(check-expect (tb? 70 50 11 (make-posn 40 140)) true)

@@ -1,0 +1,43 @@
+
+-- NEEDS MORE WORK, COPY TEST CASES OVER
+
+-- Name:
+
+-- Submitting as a file? Change filename to include your name.
+-- Google Doc? Use the name "LastName-First-Ch03TestC"
+
+main = do print "Question 1"
+          print test_q1
+          print "Base 3 converter"
+          print test_base3
+          print "Vigenere table"
+          print test_vigenere
+          print "Vigenere character converter"
+          print "Vigenere text message converter"
+
+
+
+
+q1 :: Integer -> (Integer, Integer)
+q1 _ = (0,0)
+test_q1 = [
+  q1 (-4) == (1,3),
+  q1 (-6) == (-1,15),
+  q1 (-8) == (1,5),
+  q1 (-10) == (-1,45),
+  q1 (-2018) == (-1,25),
+  q1 (-2020) == (1,75)
+  ]
+
+
+-- q2: include at least one test case
+
+base3 :: Int -> [Int]
+base3 n = []
+
+test_base3 = [ (1+2*3+1*9+0*27+1*81) == [1,2,1,0,1] ]
+
+test_vigenere = [
+  vigenere == ["ABCDEFGHIJKLMNOPQRSTUVWXYZ","BCDEFGHIJKLMNOPQRSTUVWXYZA","CDEFGHIJKLMNOPQRSTUVWXYZAB","DEFGHIJKLMNOPQRSTUVWXYZABC","EFGHIJKLMNOPQRSTUVWXYZABCD","FGHIJKLMNOPQRSTUVWXYZABCDE","GHIJKLMNOPQRSTUVWXYZABCDEF","HIJKLMNOPQRSTUVWXYZABCDEFG","IJKLMNOPQRSTUVWXYZABCDEFGH","JKLMNOPQRSTUVWXYZABCDEFGHI","KLMNOPQRSTUVWXYZABCDEFGHIJ","LMNOPQRSTUVWXYZABCDEFGHIJK","MNOPQRSTUVWXYZABCDEFGHIJKL","NOPQRSTUVWXYZABCDEFGHIJKLM","OPQRSTUVWXYZABCDEFGHIJKLMN","PQRSTUVWXYZABCDEFGHIJKLMNO","QRSTUVWXYZABCDEFGHIJKLMNOP","RSTUVWXYZABCDEFGHIJKLMNOPQ","STUVWXYZABCDEFGHIJKLMNOPQR","TUVWXYZABCDEFGHIJKLMNOPQRS","UVWXYZABCDEFGHIJKLMNOPQRST","VWXYZABCDEFGHIJKLMNOPQRSTU","WXYZABCDEFGHIJKLMNOPQRSTUV","XYZABCDEFGHIJKLMNOPQRSTUVW","YZABCDEFGHIJKLMNOPQRSTUVWX","ZABCDEFGHIJKLMNOPQRSTUVWXY"]
+  ]
+

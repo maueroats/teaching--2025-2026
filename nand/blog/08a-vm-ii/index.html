@@ -1,0 +1,690 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>8. VM II Reflection | WY CS</title>
+<meta name="description" content="Overview and discussion of the major issues arising in the VM II coding.">
+<meta property="og:url" content="http://localhost:1313/nand/blog/08a-vm-ii/">
+  <meta property="og:site_name" content="WY CS">
+  <meta property="og:title" content="8. VM II Reflection">
+  <meta property="og:description" content="Overview and discussion of the major issues arising in the VM II coding.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="nand">
+    <meta property="article:published_time" content="2024-12-27T16:26:24-06:00">
+    <meta property="article:modified_time" content="2025-02-20T10:35:11-06:00">
+
+  <meta itemprop="name" content="8. VM II Reflection">
+  <meta itemprop="description" content="Overview and discussion of the major issues arising in the VM II coding.">
+  <meta itemprop="datePublished" content="2024-12-27T16:26:24-06:00">
+  <meta itemprop="dateModified" content="2025-02-20T10:35:11-06:00">
+  <meta itemprop="wordCount" content="1090">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="8. VM II Reflection">
+  <meta name="twitter:description" content="Overview and discussion of the major issues arising in the VM II coding.">
+<link href="/scss/main.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">WY CS</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/ecs/"><span>ECS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/intermediate-cs/"><span>IntermediateCS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ap-cs/"><span>AP CS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ai/"><span>AI</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ml/"><span>ML</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/nand/"><span>NAND</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Resources</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="td-sidebar-nav collapse td-sidebar-nav--search-disabled foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-nand-li">
+  <a href="/nand/" title="Nand to Tetris" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-nand"><span class="">NAND</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch01-li">
+  <input type="checkbox" id="m-nandch01-check"/>
+  <label for="m-nandch01-check"><a href="/nand/ch01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch01"><span class="">1. Logic</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch01project-li">
+  <input type="checkbox" id="m-nandch01project-check"/>
+  <label for="m-nandch01project-check"><a href="/nand/ch01/project/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch01project"><span class="">1.Project</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch01poster-li">
+  <input type="checkbox" id="m-nandch01poster-check"/>
+  <label for="m-nandch01poster-check"><a href="/nand/ch01/poster/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch01poster"><span class="">Poster</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch02-li">
+  <input type="checkbox" id="m-nandch02-check"/>
+  <label for="m-nandch02-check"><a href="/nand/ch02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch02"><span class="">2. Arithmetic</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch02project-li">
+  <input type="checkbox" id="m-nandch02project-check"/>
+  <label for="m-nandch02project-check"><a href="/nand/ch02/project/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch02project"><span class="">2.Project</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch03-li">
+  <input type="checkbox" id="m-nandch03-check"/>
+  <label for="m-nandch03-check"><a href="/nand/ch03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch03"><span class="">3. Memory</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch03test-li">
+  <input type="checkbox" id="m-nandch03test-check"/>
+  <label for="m-nandch03test-check"><a href="/nand/ch03/test/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch03test"><span class="">3. Test</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch03review-questions-li">
+  <input type="checkbox" id="m-nandch03review-questions-check"/>
+  <label for="m-nandch03review-questions-check"><a href="/nand/ch03/review-questions/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch03review-questions"><span class="">3. Review Questions</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch04-li">
+  <input type="checkbox" id="m-nandch04-check"/>
+  <label for="m-nandch04-check"><a href="/nand/ch04/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch04"><span class="">4. Machine Language</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch04summary-li">
+  <input type="checkbox" id="m-nandch04summary-check"/>
+  <label for="m-nandch04summary-check"><a href="/nand/ch04/summary/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch04summary"><span class="">Summary</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch04quiz-1-li">
+  <input type="checkbox" id="m-nandch04quiz-1-check"/>
+  <label for="m-nandch04quiz-1-check"><a href="/nand/ch04/quiz-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch04quiz-1"><span class="">4. Quiz 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch04examples-li">
+  <input type="checkbox" id="m-nandch04examples-check"/>
+  <label for="m-nandch04examples-check"><a href="/nand/ch04/examples/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch04examples"><span class="">Examples</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch04examplesif-li">
+  <input type="checkbox" id="m-nandch04examplesif-check"/>
+  <label for="m-nandch04examplesif-check"><a href="/nand/ch04/examples/if/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch04examplesif"><span class="">If Statements</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch04examplesloop-li">
+  <input type="checkbox" id="m-nandch04examplesloop-check"/>
+  <label for="m-nandch04examplesloop-check"><a href="/nand/ch04/examples/loop/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch04examplesloop"><span class="">Loops</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch04asm-ws01-li">
+  <input type="checkbox" id="m-nandch04asm-ws01-check"/>
+  <label for="m-nandch04asm-ws01-check"><a href="/nand/ch04/asm-ws01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch04asm-ws01"><span class="">4. Assembler WS 1</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch05-li">
+  <input type="checkbox" id="m-nandch05-check"/>
+  <label for="m-nandch05-check"><a href="/nand/ch05/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch05"><span class="">5. Computer Architecture</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch05writing-checks-li">
+  <input type="checkbox" id="m-nandch05writing-checks-check"/>
+  <label for="m-nandch05writing-checks-check"><a href="/nand/ch05/writing-checks/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch05writing-checks"><span class="">Writing Checks</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch06-li">
+  <input type="checkbox" id="m-nandch06-check"/>
+  <label for="m-nandch06-check"><a href="/nand/ch06/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch06"><span class="">6. Assembler</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch06structures-li">
+  <input type="checkbox" id="m-nandch06structures-check"/>
+  <label for="m-nandch06structures-check"><a href="/nand/ch06/structures/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch06structures"><span class="">Structures</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch06110-instructions-1-li">
+  <input type="checkbox" id="m-nandch06110-instructions-1-check"/>
+  <label for="m-nandch06110-instructions-1-check"><a href="/nand/ch06/110-instructions-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch06110-instructions-1"><span class="">Instructions I</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch06120-instructions-2-li">
+  <input type="checkbox" id="m-nandch06120-instructions-2-check"/>
+  <label for="m-nandch06120-instructions-2-check"><a href="/nand/ch06/120-instructions-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch06120-instructions-2"><span class="">Instructions II</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch06match-li">
+  <input type="checkbox" id="m-nandch06match-check"/>
+  <label for="m-nandch06match-check"><a href="/nand/ch06/match/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch06match"><span class="">Match</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch08-li">
+  <input type="checkbox" id="m-nandch08-check"/>
+  <label for="m-nandch08-check"><a href="/nand/ch08/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch08"><span class="">8. Virtual Machine II</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08discussion-li">
+  <input type="checkbox" id="m-nandch08discussion-check"/>
+  <label for="m-nandch08discussion-check"><a href="/nand/ch08/discussion/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08discussion"><span class="">VM II Discussion</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08quiz-a-li">
+  <input type="checkbox" id="m-nandch08quiz-a-check"/>
+  <label for="m-nandch08quiz-a-check"><a href="/nand/ch08/quiz-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08quiz-a"><span class="">Ch 08 Quiz A</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08posters-li">
+  <input type="checkbox" id="m-nandch08posters-check"/>
+  <label for="m-nandch08posters-check"><a href="/nand/ch08/posters/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08posters"><span class="">Posters</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08sample-a-li">
+  <input type="checkbox" id="m-nandch08sample-a-check"/>
+  <label for="m-nandch08sample-a-check"><a href="/nand/ch08/sample-a/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08sample-a"><span class="">Sample Code A</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08sample-b-li">
+  <input type="checkbox" id="m-nandch08sample-b-check"/>
+  <label for="m-nandch08sample-b-check"><a href="/nand/ch08/sample-b/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08sample-b"><span class="">Sample Code B</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch08test-cases-li">
+  <input type="checkbox" id="m-nandch08test-cases-check"/>
+  <label for="m-nandch08test-cases-check"><a href="/nand/ch08/test-cases/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch08test-cases"><span class="">Notes on Test Cases</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08test-casesdetails-li">
+  <input type="checkbox" id="m-nandch08test-casesdetails-check"/>
+  <label for="m-nandch08test-casesdetails-check"><a href="/nand/ch08/test-cases/details/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08test-casesdetails"><span class="">Details</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08test-casesstatics-li">
+  <input type="checkbox" id="m-nandch08test-casesstatics-check"/>
+  <label for="m-nandch08test-casesstatics-check"><a href="/nand/ch08/test-cases/statics/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08test-casesstatics"><span class="">Statics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08test-casesfibonacci-li">
+  <input type="checkbox" id="m-nandch08test-casesfibonacci-check"/>
+  <label for="m-nandch08test-casesfibonacci-check"><a href="/nand/ch08/test-cases/fibonacci/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08test-casesfibonacci"><span class="">Fibonacci</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08pro-tips-li">
+  <input type="checkbox" id="m-nandch08pro-tips-check"/>
+  <label for="m-nandch08pro-tips-check"><a href="/nand/ch08/pro-tips/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08pro-tips"><span class="">Pro Tips</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch08notes-li">
+  <input type="checkbox" id="m-nandch08notes-check"/>
+  <label for="m-nandch08notes-check"><a href="/nand/ch08/notes/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch08notes"><span class="">Notes (DRAFT)</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch09-li">
+  <input type="checkbox" id="m-nandch09-check"/>
+  <label for="m-nandch09-check"><a href="/nand/ch09/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch09"><span class="">9. High-level Language</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch09ideas-li">
+  <input type="checkbox" id="m-nandch09ideas-check"/>
+  <label for="m-nandch09ideas-check"><a href="/nand/ch09/ideas/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch09ideas"><span class="">Ideas</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch09checkpoint-b-li">
+  <input type="checkbox" id="m-nandch09checkpoint-b-check"/>
+  <label for="m-nandch09checkpoint-b-check"><a href="/nand/ch09/checkpoint-b/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch09checkpoint-b"><span class="">Checkpoint B</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch09checkpoint-c-li">
+  <input type="checkbox" id="m-nandch09checkpoint-c-check"/>
+  <label for="m-nandch09checkpoint-c-check"><a href="/nand/ch09/checkpoint-c/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch09checkpoint-c"><span class="">Checkpoint C</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch10-li">
+  <input type="checkbox" id="m-nandch10-check"/>
+  <label for="m-nandch10-check"><a href="/nand/ch10/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch10"><span class="">10. Compiler I</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch10fsm-lexer-li">
+  <input type="checkbox" id="m-nandch10fsm-lexer-check"/>
+  <label for="m-nandch10fsm-lexer-check"><a href="/nand/ch10/fsm-lexer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch10fsm-lexer"><span class="">FSM Lexer</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch10rubric-li">
+  <input type="checkbox" id="m-nandch10rubric-check"/>
+  <label for="m-nandch10rubric-check"><a href="/nand/ch10/rubric/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch10rubric"><span class="">Rubric</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch10suggestions-li">
+  <input type="checkbox" id="m-nandch10suggestions-check"/>
+  <label for="m-nandch10suggestions-check"><a href="/nand/ch10/suggestions/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch10suggestions"><span class="">Suggestions</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandch11-li">
+  <input type="checkbox" id="m-nandch11-check"/>
+  <label for="m-nandch11-check"><a href="/nand/ch11/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandch11"><span class="">11. Compiler II</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch11symbols-1-li">
+  <input type="checkbox" id="m-nandch11symbols-1-check"/>
+  <label for="m-nandch11symbols-1-check"><a href="/nand/ch11/symbols-1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch11symbols-1"><span class="">11. Symbols I</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch11symbols-2-li">
+  <input type="checkbox" id="m-nandch11symbols-2-check"/>
+  <label for="m-nandch11symbols-2-check"><a href="/nand/ch11/symbols-2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch11symbols-2"><span class="">11. Symbols II</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandch11code-patterns-li">
+  <input type="checkbox" id="m-nandch11code-patterns-check"/>
+  <label for="m-nandch11code-patterns-check"><a href="/nand/ch11/code-patterns/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandch11code-patterns"><span class="">Code Patterns</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-nandblog-li">
+  <input type="checkbox" id="m-nandblog-check" checked/>
+  <label for="m-nandblog-check"><a href="/nand/blog/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandblog"><span class="">Blog</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandblogguidelines-li">
+  <input type="checkbox" id="m-nandblogguidelines-check"/>
+  <label for="m-nandblogguidelines-check"><a href="/nand/blog/guidelines/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandblogguidelines"><span class="">Guidelines</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-nandblog08a-vm-ii-li">
+  <input type="checkbox" id="m-nandblog08a-vm-ii-check" checked/>
+  <label for="m-nandblog08a-vm-ii-check"><a href="/nand/blog/08a-vm-ii/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-nandblog08a-vm-ii"><span class="td-sidebar-nav-active-item">8. VM II Reflection</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandracket-li">
+  <input type="checkbox" id="m-nandracket-check"/>
+  <label for="m-nandracket-check"><a href="/nand/racket/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandracket"><span class="">Racket</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandracketoverview-li">
+  <input type="checkbox" id="m-nandracketoverview-check"/>
+  <label for="m-nandracketoverview-check"><a href="/nand/racket/overview/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandracketoverview"><span class="">Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandracketstruct-match-li">
+  <input type="checkbox" id="m-nandracketstruct-match-check"/>
+  <label for="m-nandracketstruct-match-check"><a href="/nand/racket/struct-match/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandracketstruct-match"><span class="">Structs and Match</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandrackettesting-li">
+  <input type="checkbox" id="m-nandrackettesting-check"/>
+  <label for="m-nandrackettesting-check"><a href="/nand/racket/testing/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandrackettesting"><span class="">Testing</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-nandreview-li">
+  <input type="checkbox" id="m-nandreview-check"/>
+  <label for="m-nandreview-check"><a href="/nand/review/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-nandreview"><span class="">Review</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandreview01-li">
+  <input type="checkbox" id="m-nandreview01-check"/>
+  <label for="m-nandreview01-check"><a href="/nand/review/01/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandreview01"><span class="">01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandreview01-solutions-li">
+  <input type="checkbox" id="m-nandreview01-solutions-check"/>
+  <label for="m-nandreview01-solutions-check"><a href="/nand/review/01-solutions/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandreview01-solutions"><span class="">01 Solutions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandreview02-li">
+  <input type="checkbox" id="m-nandreview02-check"/>
+  <label for="m-nandreview02-check"><a href="/nand/review/02/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandreview02"><span class="">02 Questions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandreview02-solutions-li">
+  <input type="checkbox" id="m-nandreview02-solutions-check"/>
+  <label for="m-nandreview02-solutions-check"><a href="/nand/review/02-solutions/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandreview02-solutions"><span class="">02 Solutions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandreview03-li">
+  <input type="checkbox" id="m-nandreview03-check"/>
+  <label for="m-nandreview03-check"><a href="/nand/review/03/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandreview03"><span class="">03 Questions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-nandreview03-solutions-li">
+  <input type="checkbox" id="m-nandreview03-solutions-check"/>
+  <label for="m-nandreview03-solutions-check"><a href="/nand/review/03-solutions/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-nandreview03-solutions"><span class="">03 Solutions</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/maueroats/teaching--2025-2026/tree/main/www/content/nand/blog/08a-vm-ii.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/edit/main/www/content/nand/blog/08a-vm-ii.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/new/main/www/content/nand/blog?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/maueroats/teaching--2025-2026/issues/new?title=8.%20VM%20II%20Reflection" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#filenames">Filenames</a></li>
+        <li><a href="#local-jump-labels">Local jump labels</a></li>
+      </ul>
+    </li>
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#design-mistake-mishandling-unknown-data">Design mistake: mishandling unknown data</a></li>
+    <li><a href="#catalog-of-other-errors">Catalog of other errors</a>
+      <ul>
+        <li><a href="#purpose-confusion-in-classify-instruction">Purpose confusion in classify instruction</a></li>
+        <li><a href="#incorrect-stack-order">Incorrect stack order</a></li>
+        <li><a href="#incorrect-if-goto-test">Incorrect if-goto test</a></li>
+        <li><a href="#bad-sp-from-return">Bad SP from return</a></li>
+        <li><a href="#bad-labels-including-filename">Bad labels including filename</a></li>
+        <li><a href="#human---slow-to-reload-information">Human - slow to reload information</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    
+            
+	
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/nand/">NAND</a></li>
+  <li class="breadcrumb-item">
+    <a href="/nand/blog/">Blog</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    8. VM II Reflection</li>
+  </ol>
+</nav>
+<div class="td-content">
+	<h1>8. VM II Reflection</h1>
+	<div class="lead">Overview and discussion of the major issues arising in the VM II coding.</div>
+	<header class="article-meta">
+		
+  </header>
+	<p>In the design of the VM II system (branching and function calls), I
+made a lot of mistakes.
+In retrospect, the most serious ones were:</p>
+<ol>
+<li>Over-complicating the design.</li>
+<li>Losing track of the overall architecture.</li>
+<li>Spending too much effort single-stepping through Hack assembly.</li>
+</ol>
+<h2 id="overview">Overview</h2>
+<p>I represent the Hack assembly language program as S-expressions. (I
+call this &ldquo;S-asm&rdquo;.)</p>
+<table>
+  <thead>
+      <tr>
+          <th>Hack</th>
+          <th>S-asm</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>@15</td>
+          <td>(A 15)</td>
+      </tr>
+      <tr>
+          <td>@var</td>
+          <td>(A var)</td>
+      </tr>
+      <tr>
+          <td>D=M+1</td>
+          <td>(C D=M+1)</td>
+      </tr>
+      <tr>
+          <td>(toploop)</td>
+          <td>(L toploop)</td>
+      </tr>
+  </tbody>
+</table>
+<p>There were two features I needed to implement:</p>
+<ol>
+<li>Filenames in templates</li>
+<li>Labels for local jumps</li>
+</ol>
+<!--
+I will omit the (Lisp) quotes when writing below, but
+everything is a symbol or a number, including some usual symbols like
+`D=D+1`.
+-->
+<h3 id="filenames">Filenames</h3>
+<p>The instruction <code>push static 8</code> in the file &ldquo;Fibo.vm&rdquo; refers to the
+variable <code>Fibo.8</code>. This variable name is generated by a function call
+<code>(into-filename 8)</code>. It does this by inserting the code
+<code>(__FILENAME__ 8)</code> into the S-asm. At the end of the file processing,
+a pass that knows the filename changes code that into a symbol.</p>
+<h3 id="local-jump-labels">Local jump labels</h3>
+<p>Some instructions need to make choices while executing, so the
+generated code needs labels for control flow. Examples include:
+comparison operations (to make sure a true result is exactly -1), and
+functions (to label the target for the return jump).</p>
+<p>Labels need to be unique in the program, so there is a pass similar to
+the one for filenames that creates unique labels valid for short
+jumps. For example: <code>(__magic_symbol done)</code> becomes the label
+<code>LOCAL_JUMP_59_DONE</code> in one region and <code>LOCAL_JUMP_280_DONE</code> in
+another.</p>
+<h2 id="analysis">Analysis</h2>
+<p>Doing the postprocessing steps created a lot of extra work. Passing
+the line number and filename to every function in the tree would give
+enough information to implement both features (filenames in templates
+and local jump labels) without extra passes.</p>
+<p>Not doing extra passes would be much simpler. It seemed like half of
+the bugs were related to the complexity caused by extra passes.</p>
+<h2 id="design-mistake-mishandling-unknown-data">Design mistake: mishandling unknown data</h2>
+<p><strong>Note</strong>: This was a <em>major</em> source of problems.</p>
+<p>My code generation templates include both Hack assembly language code
+and S-expressions.</p>
+<p>For example:</p>
+<pre><code>@SP
+D=M
+(A ,argument-offset)
+D=D-A
+@ARG
+M=D
+(A ,name)
+</code></pre>
+<p>For a long time, when I found unrecognized assembly instructions, I
+would prefix them with an <code>XX</code> tag, so the conversion would look like
+this:</p>
+<pre><code>[...]
+(C D=M)
+(XX (A ,argument-offset))
+[...]
+</code></pre>
+<p>Sometimes I would end up running more than one conversion pass, which
+would result in terms like this:</p>
+<pre><code>(XX (XX (A ,argument-offset)))
+</code></pre>
+<p>Or, equally ineffectively, converting to a different marker:</p>
+<pre><code>(YY (A ,argument-offset))
+</code></pre>
+<p>Finally, I came to believe that this was wasted effort and I should
+just pass through the unknown terms.</p>
+<h2 id="catalog-of-other-errors">Catalog of other errors</h2>
+<h3 id="purpose-confusion-in-classify-instruction">Purpose confusion in classify instruction</h3>
+<p>The <code>classify-instr?</code> function was supposed to return A, C, or L depending on
+what kind of instruction it received. It was originally designed to
+work on Hack assembler instructions like <code>@15</code>. Later I got confused
+and started applying it to S-asm instructions like <code>(A 15)</code> and then
+I was even worried about applying it to other things like the
+filename setting code.</p>
+<p>Ways this could be improved:</p>
+<ul>
+<li>Clarify name: <code>classify-asm-instr</code> would include the &ldquo;asm&rdquo;
+reminder in the name. (Also the name should not end in a question
+mark, since it is not returning a boolean.)</li>
+<li>Explicitly write down the pipeline, possible in a README
+file. Clearly document which forms will be visible at which stage.</li>
+</ul>
+<h3 id="incorrect-stack-order">Incorrect stack order</h3>
+<p>The order that I put the stack pointers &ldquo;local, argument, this, and
+that&rdquo; onto the stack was not the order from the book. This caused me
+to fail a test.</p>
+<p>Correcting the order caused another problem: the order appeared in two
+places but I changed it only in one place. I think that is an example
+of a general principle: look for more places that a single &ldquo;bugfix&rdquo;
+applies.</p>
+<p>I also think there should have been some testing to ensure this code
+worked. That would be easier if I had a working emulator, so that I
+could more easily make a setup (&ldquo;in the middle of the story&rdquo;) and test
+small segments of code.</p>
+<h3 id="incorrect-if-goto-test">Incorrect if-goto test</h3>
+<p>For my test, I considered only -1 to be true, instead of all nonzero
+values. This was a misunderstanding of the book, so I think it needed
+to be caught by someone else&rsquo;s testing.</p>
+<p>I found this bug relatively quickly because I wrote my own tests for
+if-goto and the comparison operators (lt, eq, and gt). First I
+systematically tested the comparison operators, going through all
+possibilities (x&lt;y true, x&lt;y false, etc.) to make sure they all gave
+the expected results. Then I wrote a short if-goto segment to put
+marker valuse on the stack for true and false test results. This
+second stage of testing exposed the bug.</p>
+<h3 id="bad-sp-from-return">Bad SP from return</h3>
+<p>In my return code, I set the outgoing SP based on the <em>in-function</em> ARG
+value. At the time I set the outgoing SP, the ARG register had already
+been reset to the value used by the <em>calling function</em>. This seems
+like an essential difficulty.</p>
+<p>I spent a lot of time single-stepping through assembler code to find
+this error. That was definitely not an efficient use of time.</p>
+<p><strong>Potential improvement</strong>: think about better ways to find this bug.</p>
+<h3 id="bad-labels-including-filename">Bad labels including filename</h3>
+<p>When compiling a folder, the folder name was included in the filename,
+which caused illegal labels like:</p>
+<pre><code>(NestedCall/Sys.vm)
+</code></pre>
+<p>The slash directory separator is an illegal character in a label.</p>
+<p>The error message from the CPU emulator was terrible, blaming &ldquo;line
+0&rdquo;. Searching online quickly produced a hint. Reading the S-asm code,
+I was able to spot the error without really knowing what I was looking
+for.</p>
+<ul>
+<li>This seems like a typical error.</li>
+<li>The way to make this easier to find would be to have better error
+reporting in the emulator.</li>
+<li>I could also make a better &ldquo;strict mode&rdquo; myself. I knew which
+characters were allowed in labels, but didn&rsquo;t think I needed to
+check for them. That kind of error-proofing would add quite a bit of
+work to the code. Online says that kind of effort is better for
+teachers than students.</li>
+</ul>
+<h3 id="human---slow-to-reload-information">Human - slow to reload information</h3>
+<p>I found it difficult to pick up the project again after not working on
+it for a few months. A better README would help. Skimming the book
+again might also have been a good idea. Overall, having a
+outline/technical walkthrough of some kind would be a good
+idea. Making one of those after each chapter would be smart!</p>
+<p>Also, having a clear indication of what the current problems were when
+I picked up the code again would have helped a lot. One way to show
+that would be to have failing check-expects.</p>
+
+	<div class="td-page-meta__lastmod">
+  Last modified February 20, 2025: <a data-proofer-ignore href="https://github.com/maueroats/teaching--2025-2026/commit/295c082da3e7534a99a8838ebc3643bf05cb246e">summary -&gt; description (295c082)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Racket Docs" aria-label="Racket Docs">
+    <a target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Picturing Programs" aria-label="Picturing Programs">
+    <a target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Learn You a Haskell" aria-label="Learn You a Haskell">
+    <a target="_blank" rel="noopener" href="https://learnyouahaskell.github.io/" aria-label="Learn You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2026
+    <span class="td-footer__authors">A. Mauer-Oats</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.js"></script>
+<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
