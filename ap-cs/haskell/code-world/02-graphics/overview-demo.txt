@@ -1,0 +1,27 @@
+{-# LANGUAGE OverloadedStrings #-}
+import CodeWorld
+import qualified Data.Text as T
+  
+a = circle 4.0
+b = thickCircle 0.3 6
+c = solidCircle 8.0
+c' = colored orange c
+d = solidRectangle 12.0 2.0
+d' = colored blue d
+d'' = translated 0 (-7) d'
+d''' = rotated (pi/3) d''
+d'''' = rotated (-pi/3) d''
+
+ee = curve [(0,0),(10,7),(-10,7),(-8,-6),(8,-6)]
+
+ff = polyline[(0,0),(-1,-1),(1,-1),(0,0)]
+fff = [ translated x (-8) ff  | x<-[(-9),(-6)..9] ]
+
+main = drawingOf mystuff
+
+mystuff = pictures $ fff ++ [ ee, a, 
+                     b, 
+                     c', 
+                     d'',d''',d'''',
+                     
+                     coordinatePlane]
